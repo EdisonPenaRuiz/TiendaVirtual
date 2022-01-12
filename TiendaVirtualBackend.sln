@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVirtual.Api", "TiendaVirtual.Api\TiendaVirtual.Api.csproj", "{E0856727-8A1E-40EC-A015-5FB41A1713D0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVirtual.Core", "TiiendaVirtual.Core\TiendaVirtual.Core.csproj", "{158820D6-BAB3-490F-B5C5-D2ADA756E38A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaVirtual.Api", "TiendaVirtual.Api\TiendaVirtual.Api.csproj", "{E0856727-8A1E-40EC-A015-5FB41A1713D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVirtual.Infrastruture", "TiendaVirtual.Infrastruture\TiendaVirtual.Infrastruture.csproj", "{3CC43A51-4143-487C-BA92-C75523031509}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVirtual.Core", "TiendaVirtual.Core\TiendaVirtual.Core.csproj", "{4FFFF0F3-AF11-4714-A05A-0531DE0F0183}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{E0856727-8A1E-40EC-A015-5FB41A1713D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0856727-8A1E-40EC-A015-5FB41A1713D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0856727-8A1E-40EC-A015-5FB41A1713D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{158820D6-BAB3-490F-B5C5-D2ADA756E38A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{158820D6-BAB3-490F-B5C5-D2ADA756E38A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{158820D6-BAB3-490F-B5C5-D2ADA756E38A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{158820D6-BAB3-490F-B5C5-D2ADA756E38A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3CC43A51-4143-487C-BA92-C75523031509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3CC43A51-4143-487C-BA92-C75523031509}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CC43A51-4143-487C-BA92-C75523031509}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CC43A51-4143-487C-BA92-C75523031509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FFFF0F3-AF11-4714-A05A-0531DE0F0183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FFFF0F3-AF11-4714-A05A-0531DE0F0183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FFFF0F3-AF11-4714-A05A-0531DE0F0183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FFFF0F3-AF11-4714-A05A-0531DE0F0183}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

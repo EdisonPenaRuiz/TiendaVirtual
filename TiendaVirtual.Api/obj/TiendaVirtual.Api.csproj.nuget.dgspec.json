@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Api\\TiendaVirtual.Api.csproj": {}
+    "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Api\\TiendaVirtual.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Api\\TiendaVirtual.Api.csproj": {
+    "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Api\\TiendaVirtual.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Api\\TiendaVirtual.Api.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Api\\TiendaVirtual.Api.csproj",
         "projectName": "TiendaVirtual.Api",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Api\\TiendaVirtual.Api.csproj",
+        "projectPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Api\\TiendaVirtual.Api.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Api\\obj\\",
+        "outputPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj"
+              "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj": {
+                "projectPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj"
               },
-              "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj"
+              "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj": {
+                "projectPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj": {
+    "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj",
         "projectName": "TiendaVirtual.Infrastruture",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj",
+        "projectPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiendaVirtual.Infrastruture\\obj\\",
+        "outputPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,8 +92,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj"
+              "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj": {
+                "projectPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj"
               }
             }
           }
@@ -126,14 +126,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj": {
+    "C:\\Users\\USER\\Source\\Repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Source\\Repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj",
         "projectName": "TiendaVirtual.Core",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj",
+        "projectPath": "C:\\Users\\USER\\Source\\Repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\TiendaVirtual\\TiendaVirtualBackend\\TiiendaVirtual.Core\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Source\\Repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
