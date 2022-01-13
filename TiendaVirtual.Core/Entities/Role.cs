@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TiendaVirtual.Infrastruture.Data
+namespace TiendaVirtual.Core.Entities
 {
     public partial class Role
     {
