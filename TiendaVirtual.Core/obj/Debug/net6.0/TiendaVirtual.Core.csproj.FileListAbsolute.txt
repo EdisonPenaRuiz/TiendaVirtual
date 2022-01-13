@@ -1,0 +1,12 @@
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\bin\Debug\net6.0\TiendaVirtual.Core.deps.json
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\bin\Debug\net6.0\TiendaVirtual.Core.dll
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\bin\Debug\net6.0\ref\TiendaVirtual.Core.dll
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\bin\Debug\net6.0\TiendaVirtual.Core.pdb
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\obj\Debug\net6.0\TiendaVirtual.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\obj\Debug\net6.0\TiendaVirtual.Core.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\obj\Debug\net6.0\TiendaVirtual.Core.AssemblyInfo.cs
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\obj\Debug\net6.0\TiendaVirtual.Core.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\obj\Debug\net6.0\TiendaVirtual.Core.dll
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\obj\Debug\net6.0\ref\TiendaVirtual.Core.dll
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\obj\Debug\net6.0\TiendaVirtual.Core.pdb
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Core\obj\Debug\net6.0\TiendaVirtual.Core.csproj.AssemblyReference.cache

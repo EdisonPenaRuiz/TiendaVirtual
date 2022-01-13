@@ -1,0 +1,17 @@
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\bin\Debug\net6.0\TiendaVirtual.Infrastruture.deps.json
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\bin\Debug\net6.0\TiendaVirtual.Infrastruture.dll
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\bin\Debug\net6.0\ref\TiendaVirtual.Infrastruture.dll
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\bin\Debug\net6.0\TiendaVirtual.Infrastruture.pdb
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\bin\Debug\net6.0\TiendaVirtual.Core.dll
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\bin\Debug\net6.0\TiendaVirtual.Core.pdb
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.AssemblyInfo.cs
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.csproj.CopyComplete
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.dll
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\ref\TiendaVirtual.Infrastruture.dll
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.pdb
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\bin\Debug\net6.0\TiendaVirtual.Infrastruture.runtimeconfig.json
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.genruntimeconfig.cache
