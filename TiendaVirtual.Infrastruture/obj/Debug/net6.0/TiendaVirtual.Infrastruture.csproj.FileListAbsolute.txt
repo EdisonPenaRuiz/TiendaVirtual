@@ -13,3 +13,5 @@ C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\
 C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.dll
 C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\ref\TiendaVirtual.Infrastruture.dll
 C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.pdb
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\bin\Debug\net6.0\TiendaVirtual.Infrastruture.runtimeconfig.json
+C:\Users\USER\source\repos\EdisonPena\TiendaVirtual\TiendaVirtual.Infrastruture\obj\Debug\net6.0\TiendaVirtual.Infrastruture.genruntimeconfig.cache
