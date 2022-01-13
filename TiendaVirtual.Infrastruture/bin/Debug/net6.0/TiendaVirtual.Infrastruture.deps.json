@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "TiendaVirtual.Infrastruture/1.0.0": {
+        "dependencies": {
+          "TiendaVirtual.Core": "1.0.0"
+        },
+        "runtime": {
+          "TiendaVirtual.Infrastruture.dll": {}
+        }
+      },
+      "TiendaVirtual.Core/1.0.0": {
+        "runtime": {
+          "TiendaVirtual.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TiendaVirtual.Infrastruture/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TiendaVirtual.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

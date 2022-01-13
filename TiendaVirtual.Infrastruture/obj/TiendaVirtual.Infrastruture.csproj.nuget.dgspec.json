@@ -4,14 +4,14 @@
     "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj": {
+    "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Core\\TiendaVirtual.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj",
-        "projectName": "TiendaVirtual.Infrastruture",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Core\\TiendaVirtual.Core.csproj",
+        "projectName": "TiendaVirtual.Core",
+        "projectPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Core\\TiendaVirtual.Core.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\obj\\",
+        "outputPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,11 +27,7 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -62,14 +58,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Source\\Repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj": {
+    "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Source\\Repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj",
-        "projectName": "TiendaVirtual.Core",
-        "projectPath": "C:\\Users\\USER\\Source\\Repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\TiendaVirtual.Core.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj",
+        "projectName": "TiendaVirtual.Infrastruture",
+        "projectPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\TiendaVirtual.Infrastruture.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Source\\Repos\\EdisonPena\\TiendaVirtual\\TiiendaVirtual.Core\\obj\\",
+        "outputPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Infrastruture\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -85,7 +81,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Core\\TiendaVirtual.Core.csproj": {
+                "projectPath": "C:\\Users\\USER\\source\\repos\\EdisonPena\\TiendaVirtual\\TiendaVirtual.Core\\TiendaVirtual.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -97,6 +97,18 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

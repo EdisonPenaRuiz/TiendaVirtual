@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "mXimWv2fP4UFGojxr93CYQTwjcpnDgNGpdujjXwGzeA=",
+  "Source": "TiendaVirtual.Api",
+  "BasePath": "_content/TiendaVirtual.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

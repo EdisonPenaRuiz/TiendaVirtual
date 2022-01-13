@@ -9,11 +9,18 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Filters\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TiiendaVirtual.Core\TiendaVirtual.Core.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TiendaVirtual.Core\TiendaVirtual.Core.csproj" />
   </ItemGroup>
 
 </Project>

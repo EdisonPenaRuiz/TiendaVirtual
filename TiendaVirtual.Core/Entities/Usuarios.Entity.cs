@@ -8,10 +8,10 @@ namespace TiendaVirtual.Core.Entities
 {
     public class Usuarios
     {
-        int UsuarioID { get; set; }
-        string Nombre { get; set; }
-        string Apellido { get; set; }
-        int RolID { get; set; }
-        int CuentaID { get; set; }
+        public int UsuarioID { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public int RolID { get; set; }
+        public int CuentaID { get; set; }
     }
 }
