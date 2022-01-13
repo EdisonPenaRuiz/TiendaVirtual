@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TiendaVirtual.Core.Interfaces
 {
-    internal interface ICuenta
+    public interface ICuenta
     {
     }
 }

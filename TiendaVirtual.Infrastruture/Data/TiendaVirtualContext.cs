@@ -158,10 +158,18 @@ namespace TiendaVirtual.Infrastruture.Data
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Contrasena)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.CuentaId).HasColumnName("CuentaID");
 
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NombreUsuario)
+                    .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.RolId).HasColumnName("RolID");

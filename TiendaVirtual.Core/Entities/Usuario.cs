@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TiendaVirtual.Core.Entities;
 
 namespace TiendaVirtual.Core.Entities
 {
@@ -13,6 +14,8 @@ namespace TiendaVirtual.Core.Entities
         public int UsuarioId { get; set; }
         public string Nombre { get; set; } = null!;
         public string Apellido { get; set; } = null!;
+        public string NombreUsuario { get; set; } = null!;
+        public string Contrasena { get; set; } = null!;
         public int RolId { get; set; }
         public int CuentaId { get; set; }
 
