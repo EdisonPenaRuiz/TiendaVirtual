@@ -17,4 +17,17 @@ namespace TiendaVirtual.Core.Entities
         public virtual FormaPago FormaPago { get; set; } = null!;
         public virtual Usuario Usuario { get; set; } = null!;
     }
+
+    public partial class ListadoPedido
+    {
+        public int PedidoID { get; set; }
+        public string Nombre { get; set; } = null!;
+        public string PaisDestino { get; set; } = null!;
+        public string ProvinciaDestino { get; set; } = null!;
+        public string SectorDestino { get; set; } = null!;
+        public decimal Precio { get; set; }
+        public string FormaDePago { get; set; }
+
+    }
+
 }

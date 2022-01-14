@@ -8,15 +8,17 @@ namespace TiendaVirtual.Core.Wrappers
 {
     public class RepuestasServidorGenericas<T>
     {
-        public RepuestasServidorGenericas(T data, bool operacionExitosa, string errores=null)
+        public RepuestasServidorGenericas(T resultado,List<T> listadoResultado, bool operacionExitosa, string errores=null)
         {
             OperacionExitosa = operacionExitosa;
-            Data = data;
+            ResultadoEspecifico = resultado;
+            ListadoResultados = listadoResultado;
             Error = errores;
         }
         
         public bool OperacionExitosa { get; set; }
         public string Error { get; set; }
-        public T Data { get; set; }
+        public List<T> ListadoResultados { get; set; }
+        public T ResultadoEspecifico { get; set; }
     }
 }

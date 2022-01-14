@@ -22,7 +22,7 @@ namespace TiendaVirtual.Infrastruture.Repositories
 
         public async Task<RepuestasServidorGenericas<Usuario>> AgregarUsuario(Usuario usuario)
         {
-            var Respuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { }, true) { };
+            var Respuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { }, new List<Usuario>() { }, true) { };
             try
             {
                 //Verificamos si ya existe un usuario con las credenciales introducidas
@@ -30,17 +30,17 @@ namespace TiendaVirtual.Infrastruture.Repositories
                 if (_context.Usuarios.Where(usuario => usuario.NombreUsuario==usuario.NombreUsuario).Count() == 0) {
                   _context.Usuarios.Add(usuario);
                   await _context.SaveChangesAsync();
-                    Respuesta = new RepuestasServidorGenericas<Usuario>(usuario, true);
+                    Respuesta = new RepuestasServidorGenericas<Usuario>(usuario, new List<Usuario>() { }, true);
                 
                 } else if (_context.Usuarios.Where(usuario => usuario.NombreUsuario == usuario.NombreUsuario).Count() > 0) 
                 {
-                    Respuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { }, true, "Ya existe un usuario con el nombre de usuario introducido");
+                    Respuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { },new List<Usuario>() { }, true, "Ya existe un usuario con el nombre de usuario introducido");
                 }
 
             }
             catch (DbUpdateException DbE)
             {
-                Respuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { },false,DbE.Message);
+                Respuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { }, new List<Usuario>() { }, false,DbE.Message);
             }
             return Respuesta;
          }
