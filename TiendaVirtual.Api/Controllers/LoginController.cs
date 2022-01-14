@@ -9,9 +9,9 @@ namespace TiendaVirtual.Api.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        readonly ILogin _Ilogin;
+        readonly ILoginRepository _Ilogin;
 
-        public LoginController(ILogin Ilogin)
+        public LoginController(ILoginRepository Ilogin)
         {
             _Ilogin = Ilogin;
         }

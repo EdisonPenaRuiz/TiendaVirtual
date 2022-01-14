@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TiendaVirtual.Core.Interfaces
 {
-    public interface IFormaPago
+    public interface IFormaPagoRepository
     {
     }
 }

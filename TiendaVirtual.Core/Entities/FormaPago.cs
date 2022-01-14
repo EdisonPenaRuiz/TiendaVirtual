@@ -12,9 +12,7 @@ namespace TiendaVirtual.Core.Entities
 
         public int FormaPagoId { get; set; }
         public string Nombre { get; set; } = null!;
-        public int TipoTransaccionId { get; set; }
 
-        public virtual TiposTrasaccione TipoTransaccion { get; set; } = null!;
         public virtual ICollection<Pedido> Pedidos { get; set; }
     }
 }

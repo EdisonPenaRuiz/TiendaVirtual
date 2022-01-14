@@ -8,7 +8,7 @@ using TiendaVirtual.Core.Wrappers;
 
 namespace TiendaVirtual.Core.Interfaces
 {
-    public interface ILogin
+    public interface ILoginRepository
     {
         Task<RepuestasServidorGenericas<Usuario>> LoginUsuario(string NombreUsuario, string Contrasena);
 

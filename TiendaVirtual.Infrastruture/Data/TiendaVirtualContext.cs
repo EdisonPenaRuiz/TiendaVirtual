@@ -22,7 +22,6 @@ namespace TiendaVirtual.Infrastruture.Data
         public virtual DbSet<FormaPago> FormaPagos { get; set; } = null!;
         public virtual DbSet<Pedido> Pedidos { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
-        public virtual DbSet<TiposTrasaccione> TiposTrasacciones { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -47,6 +46,14 @@ namespace TiendaVirtual.Infrastruture.Data
                     .IsUnicode(false);
 
                 entity.Property(e => e.Precio).HasColumnType("money");
+
+                entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
+
+                entity.HasOne(d => d.Usuario)
+                    .WithMany(p => p.Articulos)
+                    .HasForeignKey(d => d.UsuarioId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Articulos_Usuarios");
             });
 
             modelBuilder.Entity<Cuenta>(entity =>
@@ -56,6 +63,14 @@ namespace TiendaVirtual.Infrastruture.Data
                     .HasColumnName("CuentaID");
 
                 entity.Property(e => e.Monto).HasColumnType("money");
+
+                entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
+
+                entity.HasOne(d => d.Usuario)
+                    .WithMany(p => p.Cuenta)
+                    .HasForeignKey(d => d.UsuarioId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Cuentas_Usuarios");
             });
 
             modelBuilder.Entity<FormaPago>(entity =>
@@ -69,14 +84,6 @@ namespace TiendaVirtual.Infrastruture.Data
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.TipoTransaccionId).HasColumnName("TipoTransaccionID");
-
-                entity.HasOne(d => d.TipoTransaccion)
-                    .WithMany(p => p.FormaPagos)
-                    .HasForeignKey(d => d.TipoTransaccionId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_FormaPago_TiposTrasacciones");
             });
 
             modelBuilder.Entity<Pedido>(entity =>
@@ -103,23 +110,6 @@ namespace TiendaVirtual.Infrastruture.Data
 
                 entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
 
-                entity.HasOne(d => d.Articulo)
-                    .WithMany(p => p.Pedidos)
-                    .HasForeignKey(d => d.ArticuloId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Pedidos_Articulos");
-
-                entity.HasOne(d => d.FormaPago)
-                    .WithMany(p => p.Pedidos)
-                    .HasForeignKey(d => d.FormaPagoId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Pedidos_FormaPago");
-
-                entity.HasOne(d => d.Usuario)
-                    .WithMany(p => p.Pedidos)
-                    .HasForeignKey(d => d.UsuarioId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Pedidos_Usuarios");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -129,19 +119,6 @@ namespace TiendaVirtual.Infrastruture.Data
                 entity.Property(e => e.RolId)
                     .ValueGeneratedNever()
                     .HasColumnName("RolID");
-
-                entity.Property(e => e.Nombre)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<TiposTrasaccione>(entity =>
-            {
-                entity.HasKey(e => e.TipoTransaccionId);
-
-                entity.Property(e => e.TipoTransaccionId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("TipoTransaccionID");
 
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
@@ -162,8 +139,6 @@ namespace TiendaVirtual.Infrastruture.Data
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CuentaId).HasColumnName("CuentaID");
-
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -173,18 +148,6 @@ namespace TiendaVirtual.Infrastruture.Data
                     .IsUnicode(false);
 
                 entity.Property(e => e.RolId).HasColumnName("RolID");
-
-                entity.HasOne(d => d.Cuenta)
-                    .WithMany(p => p.Usuarios)
-                    .HasForeignKey(d => d.CuentaId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Usuarios_Cuentas");
-
-                entity.HasOne(d => d.Rol)
-                    .WithMany(p => p.Usuarios)
-                    .HasForeignKey(d => d.RolId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Usuarios_Roles");
             });
 
             OnModelCreatingPartial(modelBuilder);

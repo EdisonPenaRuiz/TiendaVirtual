@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TiendaVirtual.Core.Entities;
+using TiendaVirtual.Core.Interfaces;
 using TiendaVirtual.Infrastruture.Data;
 
 namespace TiendaVirtual.Api.Controllers
@@ -15,109 +16,84 @@ namespace TiendaVirtual.Api.Controllers
     [ApiController]
     public class PedidosController : ControllerBase
     {
-        private readonly TiendaVirtualContext _context;
+        private readonly IPedidosRepository _IpedidosRepository;
 
-        public PedidosController(TiendaVirtualContext context)
+        public PedidosController(IPedidosRepository IpedidoRepository)
         {
-            _context = context;
+            _IpedidosRepository = IpedidoRepository;
         }
 
-        // GET: api/Pedidos
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Pedido>>> GetPedidos()
-        {
-            return await _context.Pedidos.ToListAsync();
-        }
-
+       
         // GET: api/Pedidos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Pedido>> GetPedido(int id)
+        public async Task<ActionResult<Pedido>> ObtenerPedidosPorUsuario(int id)
         {
-            var pedido = await _context.Pedidos.FindAsync(id);
-
-            if (pedido == null)
-            {
-                return NotFound();
-            }
-
-            return pedido;
-        }
-
-        // PUT: api/Pedidos/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPedido(int id, Pedido pedido)
-        {
-            if (id != pedido.PedidoId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(pedido).State = EntityState.Modified;
-
+            var PedidosReturn = new Object();
             try
             {
-                await _context.SaveChangesAsync();
+                PedidosReturn = await _IpedidosRepository.ObtenerPedidosPorUsuarioID(id);
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception e)
             {
-                if (!PedidoExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return NoContent();
+            }
+            return Ok(PedidosReturn);
         }
 
         // POST: api/Pedidos
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Pedido>> PostPedido(Pedido pedido)
+        public async Task<ActionResult<Pedido>> PostPedido(Pedido pedidos)
         {
-            _context.Pedidos.Add(pedido);
+            var PedidosReturn = new Object();
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (PedidoExists(pedido.PedidoId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                PedidosReturn = await _IpedidosRepository.AgregarPedido(pedidos);
 
-            return CreatedAtAction("GetPedido", new { id = pedido.PedidoId }, pedido);
+            }
+            catch (Exception e)
+            {
+                PedidosReturn = e;
+            }
+            return Ok(PedidosReturn);
         }
+
+        // PUT: api/Pedidos/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ActualizarPedidos(int id,Pedido Pedido)
+        {
+            var PedidosReturn = new Object();
+            try
+            {
+                PedidosReturn = await _IpedidosRepository.ActualizarPedido(Pedido,id);
+
+            }
+            catch (Exception e)
+            {
+                PedidosReturn = e;
+            }
+            return Ok(PedidosReturn);
+        }
+
+       
 
         // DELETE: api/Pedidos/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePedido(int id)
+        public async Task<IActionResult> EliminarPedidos(int id)
         {
-            var pedido = await _context.Pedidos.FindAsync(id);
-            if (pedido == null)
+            var PedidosReturn = new Object();
+            try
             {
-                return NotFound();
+                PedidosReturn = await _IpedidosRepository.EliminarPedido(id);
+
             }
-
-            _context.Pedidos.Remove(pedido);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            catch (Exception e)
+            {
+                PedidosReturn = e;
+            }
+            return Ok(PedidosReturn);
         }
 
-        private bool PedidoExists(int id)
-        {
-            return _context.Pedidos.Any(e => e.PedidoId == id);
-        }
     }
 }
