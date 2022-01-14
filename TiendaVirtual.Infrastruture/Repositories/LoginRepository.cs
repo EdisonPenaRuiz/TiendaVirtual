@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using TiendaVirtual.Core.Entities;
 using TiendaVirtual.Core.Interfaces;
 using TiendaVirtual.Infrastruture.Data;
@@ -11,7 +10,7 @@ using TiendaVirtual.Core.Wrappers;
 
 namespace TiendaVirtual.Infrastruture.Repositories
 {
-    public class LoginRepository:ILogin
+    public class LoginRepository:ILoginRepository
     {
         readonly TiendaVirtualContext _context;
 

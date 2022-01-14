@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using TiendaVirtual.Core.Entities;
 
 namespace TiendaVirtual.Core.Entities
 {
@@ -8,6 +7,7 @@ namespace TiendaVirtual.Core.Entities
     {
         public Usuario()
         {
+            Cuenta = new HashSet<Cuenta>();
             Pedidos = new HashSet<Pedido>();
         }
 
@@ -17,10 +17,8 @@ namespace TiendaVirtual.Core.Entities
         public string NombreUsuario { get; set; } = null!;
         public string Contrasena { get; set; } = null!;
         public int RolId { get; set; }
-        public int CuentaId { get; set; }
 
-        public virtual Cuenta Cuenta { get; set; } = null!;
-        public virtual Role Rol { get; set; } = null!;
+        public virtual ICollection<Cuenta> Cuenta { get; set; }
         public virtual ICollection<Pedido> Pedidos { get; set; }
     }
 }

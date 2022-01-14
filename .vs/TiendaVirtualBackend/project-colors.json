@@ -5,7 +5,27 @@
       "ProjectGuid": "158820d6-bab3-490f-b5c5-d2ada756e38a",
       "DisplayName": "TiendaVirtual.Core",
       "ColorIndex": 0
+    },
+    "3cc43a51-4143-487c-ba92-c75523031509": {
+      "ProjectGuid": "3cc43a51-4143-487c-ba92-c75523031509",
+      "DisplayName": "TiendaVirtual.Infrastruture",
+      "ColorIndex": 1
+    },
+    "4ffff0f3-af11-4714-a05a-0531de0f0183": {
+      "ProjectGuid": "4ffff0f3-af11-4714-a05a-0531de0f0183",
+      "DisplayName": "TiendaVirtual.Core",
+      "ColorIndex": 2
+    },
+    "e0856727-8a1e-40ec-a015-5fb41a1713d0": {
+      "ProjectGuid": "e0856727-8a1e-40ec-a015-5fb41a1713d0",
+      "DisplayName": "TiendaVirtual.Api",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 4
 }

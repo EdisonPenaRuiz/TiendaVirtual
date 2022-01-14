@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TiendaVirtual.Core.Interfaces
 {
-    public interface IArticulos
+    public interface IArticulosRepository
     {
     }
 }

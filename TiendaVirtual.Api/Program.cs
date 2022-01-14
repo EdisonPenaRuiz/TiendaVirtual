@@ -10,7 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 //Interfaces
-builder.Services.AddTransient<ILogin, LoginRepository>();
+builder.Services.AddTransient<ILoginRepository, LoginRepository>();
+builder.Services.AddTransient<IUsuariosRepository, UsuariosRepository>();
+
 
 //DBContext
 builder.Services.AddDbContext<TiendaVirtualContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TiendaVirtual.Core.Entities;
+using TiendaVirtual.Core.Interfaces;
+using TiendaVirtual.Core.Wrappers;
 using TiendaVirtual.Infrastruture.Data;
 
 namespace TiendaVirtual.Api.Controllers
@@ -16,11 +18,13 @@ namespace TiendaVirtual.Api.Controllers
     public class UsuariosController : ControllerBase
     {
         private readonly TiendaVirtualContext _context;
+        readonly IUsuariosRepository _IUsuarioRepository;
 
-        public UsuariosController(TiendaVirtualContext context)
+        public UsuariosController(IUsuariosRepository IusuarioRepository)
         {
-            _context = context;
+            _IUsuarioRepository = IusuarioRepository;
         }
+
 
         // GET: api/Usuarios
         [HttpGet]
@@ -29,6 +33,22 @@ namespace TiendaVirtual.Api.Controllers
             return await _context.Usuarios.ToListAsync();
         }
 
+        // POST: api/Usuarios
+        [HttpPost]
+        public async Task<ActionResult<Usuario>> AgregarUsuario(Usuario usuario)
+        {
+            var Respuesta = new Object();
+            try
+            {
+              Respuesta = await _IUsuarioRepository.AgregarUsuario(usuario);
+            }
+            catch (DbUpdateException)
+            {
+                
+            }
+
+            return Ok(Respuesta);
+        }
         // GET: api/Usuarios/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(int id)
@@ -74,30 +94,7 @@ namespace TiendaVirtual.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Usuarios
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
-        {
-            _context.Usuarios.Add(usuario);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (UsuarioExists(usuario.UsuarioId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtAction("GetUsuario", new { id = usuario.UsuarioId }, usuario);
-        }
+       
 
         // DELETE: api/Usuarios/5
         [HttpDelete("{id}")]
