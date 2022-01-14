@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TiendaVirtual.Core.Entities;
+using TiendaVirtual.Core.Interfaces;
 using TiendaVirtual.Infrastruture.Data;
 
 namespace TiendaVirtual.Api.Controllers
@@ -15,109 +16,122 @@ namespace TiendaVirtual.Api.Controllers
     [ApiController]
     public class ArticulosController : ControllerBase
     {
-        private readonly TiendaVirtualContext _context;
+        private readonly IArticulosRepository _IarticulosRepository;
 
-        public ArticulosController(TiendaVirtualContext context)
+        public ArticulosController(IArticulosRepository IarticuloRepository)
         {
-            _context = context;
+            _IarticulosRepository = IarticuloRepository;
         }
 
         // GET: api/Articulos
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Articulo>>> GetArticulos()
+        public async Task<ActionResult<IEnumerable<Articulo>>> ObtenerTodosLosArticulos()
         {
-            return await _context.Articulos.ToListAsync();
+            var ArticuloRespuesta = new Object();
+
+            try
+            {
+                ArticuloRespuesta = await _IarticulosRepository.ObtenerTodosLosArticulosDisponible();
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            return Ok(ArticuloRespuesta);
+        }
+
+        // GET: api/Articulos/5
+        [HttpGet("ArticuloUsuario/{id}")]
+        public async Task<ActionResult<Articulo>> GetArticuloPorUsuarioID(int id)
+        {
+            var ArticuloRespuesta = new Object();
+
+            try
+            {
+                ArticuloRespuesta = await _IarticulosRepository.ObtenerArticulosPorUsuarioID(id);
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            return Ok(ArticuloRespuesta);
         }
 
         // GET: api/Articulos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Articulo>> GetArticulo(int id)
+        public async Task<ActionResult<Articulo>> GetArticuloPorArticuloID(int id)
         {
-            var articulo = await _context.Articulos.FindAsync(id);
+            var ArticuloRespuesta = new Object();
 
-            if (articulo == null)
+            try
             {
-                return NotFound();
+                ArticuloRespuesta = await _IarticulosRepository.ObtenerArticulosPorArticuloID(id);
+            }
+            catch (Exception e)
+            {
+
             }
 
-            return articulo;
+            return Ok(ArticuloRespuesta);
         }
 
         // PUT: api/Articulos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutArticulo(int id, Articulo articulo)
+        public async Task<IActionResult> ActualizarArticulo(Articulo articulo)
         {
-            if (id != articulo.ArticuloId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(articulo).State = EntityState.Modified;
+            var ArticuloRespuesta = new Object();
 
             try
             {
-                await _context.SaveChangesAsync();
+                ArticuloRespuesta = await _IarticulosRepository.ActualizarArticulo(articulo);
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception e)
             {
-                if (!ArticuloExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+
             }
 
-            return NoContent();
+            return Ok(ArticuloRespuesta);
         }
 
         // POST: api/Articulos
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Articulo>> PostArticulo(Articulo articulo)
+        public async Task<ActionResult<Articulo>> AgregarArticulo(Articulo articulo)
         {
-            _context.Articulos.Add(articulo);
+            var ArticuloRespuesta = new Object();
+
             try
             {
-                await _context.SaveChangesAsync();
+                ArticuloRespuesta = await _IarticulosRepository.AgregarArticulo(articulo);
             }
-            catch (DbUpdateException)
+            catch (Exception e)
             {
-                if (ArticuloExists(articulo.ArticuloId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+
             }
 
-            return CreatedAtAction("GetArticulo", new { id = articulo.ArticuloId }, articulo);
+            return Ok(ArticuloRespuesta);
         }
 
         // DELETE: api/Articulos/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteArticulo(int id)
         {
-            var articulo = await _context.Articulos.FindAsync(id);
-            if (articulo == null)
+            var ArticuloRespuesta = new Object();
+
+            try
             {
-                return NotFound();
+                ArticuloRespuesta = await _IarticulosRepository.EliminarArticulo(id);
+            }
+            catch (Exception e)
+            {
+
             }
 
-            _context.Articulos.Remove(articulo);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            return Ok(ArticuloRespuesta);
         }
 
-        private bool ArticuloExists(int id)
-        {
-            return _context.Articulos.Any(e => e.ArticuloId == id);
-        }
     }
 }

@@ -7,6 +7,7 @@ namespace TiendaVirtual.Core.Entities
     {
         public Usuario()
         {
+            Articulos = new HashSet<Articulo>();
             Cuenta = new HashSet<Cuenta>();
             Pedidos = new HashSet<Pedido>();
         }
@@ -18,6 +19,7 @@ namespace TiendaVirtual.Core.Entities
         public string Contrasena { get; set; } = null!;
         public int RolId { get; set; }
 
+        public virtual ICollection<Articulo> Articulos { get; set; }
         public virtual ICollection<Cuenta> Cuenta { get; set; }
         public virtual ICollection<Pedido> Pedidos { get; set; }
     }

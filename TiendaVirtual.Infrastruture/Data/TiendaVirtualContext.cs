@@ -46,6 +46,14 @@ namespace TiendaVirtual.Infrastruture.Data
                     .IsUnicode(false);
 
                 entity.Property(e => e.Precio).HasColumnType("money");
+
+                entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
+
+                entity.HasOne(d => d.Usuario)
+                    .WithMany(p => p.Articulos)
+                    .HasForeignKey(d => d.UsuarioId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Articulos_Usuarios");
             });
 
             modelBuilder.Entity<Cuenta>(entity =>
@@ -102,7 +110,6 @@ namespace TiendaVirtual.Infrastruture.Data
 
                 entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
 
-                
             });
 
             modelBuilder.Entity<Role>(entity =>

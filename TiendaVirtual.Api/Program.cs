@@ -13,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddTransient<ILoginRepository, LoginRepository>();
 builder.Services.AddTransient<IUsuariosRepository, UsuariosRepository>();
 builder.Services.AddTransient<IPedidosRepository, PedidosRepository>();
+builder.Services.AddTransient<IArticulosRepository, ArticulosRepository>();
 
 
 //DBContext
@@ -32,5 +33,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();

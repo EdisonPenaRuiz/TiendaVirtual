@@ -122,7 +122,7 @@ namespace TiendaVirtual.Infrastruture.Repositories
                          _context.Entry(Pedido).State = EntityState.Modified;
 
 
-                        _context.AddRange(Pedido);
+                        _context.Add(Pedido);
                         await _context.SaveChangesAsync();
 
 
