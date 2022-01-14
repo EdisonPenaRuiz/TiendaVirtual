@@ -13,11 +13,7 @@ namespace TiendaVirtual.Core.Entities
         public int FormaPagoId { get; set; }
         public int UsuarioId { get; set; }
 
-        public virtual Articulo Articulo { get; set; } = null!;
-        public virtual FormaPago FormaPago { get; set; } = null!;
-        public virtual Usuario Usuario { get; set; } = null!;
     }
-
     public partial class ListadoPedido
     {
         public int PedidoID { get; set; }
@@ -29,5 +25,4 @@ namespace TiendaVirtual.Core.Entities
         public string FormaDePago { get; set; }
 
     }
-
 }

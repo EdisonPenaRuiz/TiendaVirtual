@@ -11,7 +11,7 @@ using TiendaVirtual.Infrastruture.Data;
 
 namespace TiendaVirtual.Infrastruture.Repositories
 {
-    internal class PedidosRepository:IPedidosRepository
+    public class PedidosRepository:IPedidosRepository
     {
         public readonly TiendaVirtualContext _context;
         public PedidosRepository(TiendaVirtualContext context)
@@ -26,7 +26,7 @@ namespace TiendaVirtual.Infrastruture.Repositories
 
             try
             {
-                if (UsuarioID != null && UsuarioID != 0)
+                if (UsuarioID != null)
                 {
                     if (_context.Usuarios.Where(usuario => usuario.UsuarioId == UsuarioID).Count() > 0)
                     {
@@ -79,34 +79,17 @@ namespace TiendaVirtual.Infrastruture.Repositories
             return Respuesta;
         }
 
-        public async Task<RepuestasServidorGenericas<Pedido>> AgregarPedidos(List<Pedido> pedidos)
+        public async Task<RepuestasServidorGenericas<Pedido>> AgregarPedido(Pedido Pedido)
         {
             var Respuesta = new RepuestasServidorGenericas<Pedido>(new Pedido() { }, new List<Pedido>() { }, true, null);
 
             try
             {
-                if (pedidos != null)
+                if (Pedido != null)
                 {
-                    //obtengo el ultimo PedidoID Introducido y le sumo 1
-                    var UltimoPedidoIDGuardado = _context.Pedidos.Select(x => x.PedidoId).Max()+1;
-
-                    //Pedidos Transformados
-                    List<Pedido> PedidosTransformados = new List<Pedido>();
-                    //Transformo la data para que todos los pedidos que lleguen se agrupen en un solo pedido id
-                    pedidos.ForEach(pedido =>
-                    {
-                        PedidosTransformados.Add(new Pedido()
-                        {
-                            PedidoId = UltimoPedidoIDGuardado,//Con esto se busca que con un solo pedido el usuario pueda agregar diferentes articulos
-                            ArticuloId = pedido.ArticuloId,
-                            UsuarioId = pedido.UsuarioId,
-                            FormaPagoId = pedido.FormaPagoId,
-                            PaisDestino = pedido.PaisDestino,
-                            ProvinciaDestino = pedido.ProvinciaDestino,
-                            SectorDestino = pedido.SectorDestino
-                        });
-                    });
-                    _context.AddRange(PedidosTransformados);
+                    
+                    
+                    _context.AddRange(Pedido);
                     await _context.SaveChangesAsync();
                     
                     Respuesta = new RepuestasServidorGenericas<Pedido>(new Pedido() { }, new List<Pedido>() { }, true);
@@ -123,52 +106,30 @@ namespace TiendaVirtual.Infrastruture.Repositories
             return Respuesta;
         }
 
-        public async Task<RepuestasServidorGenericas<Pedido>> ActualizarPedido(List<Pedido> pedidos,int pedidoID)
+        public async Task<RepuestasServidorGenericas<Pedido>> ActualizarPedido(Pedido Pedido,int PedidoID)
         {
             var Respuesta = new RepuestasServidorGenericas<Pedido>(new Pedido() { }, new List<Pedido>() { }, true, null);
 
             try
             {
-                if (pedidos != null )
+                if (Pedido != null )
                 {
                     //Comprobando existencia de pedidos
-                    if (_context.Pedidos.Where(pedidos => pedidos.PedidoId == pedidoID).Count() > 0)
+                    if (_context.Pedidos.Where(pedidos => pedidos.PedidoId == PedidoID).Count() > 0)
                     {
 
-                        //Obteniendo los pedidos a actualizar para eliminarlos 
-                        var PedidosEliminar = _context.Pedidos.Where(pedido => pedido.PedidoId == pedido.PedidoId).ToList();
-
-                        //Eliminando pedidos para crear nuevos pedidos con el mismo pedido ID
-                        _context.RemoveRange(PedidosEliminar);
-                        await _context.SaveChangesAsync();
-
-                        //Actualizar pedidos
-                        List<Pedido> PedidosActualizarTransformados = new List<Pedido>();
-                        //Transformo la data para que todos los pedidos que lleguen se agrupen en un solo pedido id
-                        pedidos.ForEach(pedido =>
-                        {
-                            _context.Entry(pedido).State = EntityState.Modified;
+                        
+                         _context.Entry(Pedido).State = EntityState.Modified;
 
 
-                            PedidosActualizarTransformados.Add(new Pedido()
-                            {
-                                PedidoId = pedidoID,//Con esto se busca que con un solo pedido el usuario pueda agregar diferentes articulos
-                                ArticuloId = pedido.ArticuloId,
-                                UsuarioId = pedido.UsuarioId,
-                                FormaPagoId = pedido.FormaPagoId,
-                                PaisDestino = pedido.PaisDestino,
-                                ProvinciaDestino = pedido.ProvinciaDestino,
-                                SectorDestino = pedido.SectorDestino
-                            });
-                        });
-                        _context.AddRange(PedidosActualizarTransformados);
+                        _context.AddRange(Pedido);
                         await _context.SaveChangesAsync();
 
 
 
                         Respuesta = new RepuestasServidorGenericas<Pedido>(new Pedido(), new List<Pedido>() { }, true);
                     }
-                    else if (_context.Pedidos.Where(pedidos => pedidos.PedidoId == pedidoID).Count() == 0) ;
+                    else if (_context.Pedidos.Where(pedidos => pedidos.PedidoId == PedidoID).Count() == 0) ;
                     {
                         Respuesta = new RepuestasServidorGenericas<Pedido>(new Pedido(), new List<Pedido>() { }, true,"No existe el pedido que desea actualizar");
                     }
@@ -185,15 +146,15 @@ namespace TiendaVirtual.Infrastruture.Repositories
             return Respuesta;
         }
 
-        public async Task<RepuestasServidorGenericas<Pedido>> EliminarPedido(int pedidoID)
+        public async Task<RepuestasServidorGenericas<Pedido>> EliminarPedido(int PedidoID)
         {
             var Respuesta = new RepuestasServidorGenericas<Pedido>(new Pedido() { }, new List<Pedido>() { }, true, null);
 
             try
             {
-                if (pedidoID != null && pedidoID != 0)
+                if (PedidoID != null )
                 {
-                    var pedidoEliminar = await _context.Pedidos.FindAsync(pedidoID);
+                    var pedidoEliminar = await _context.Pedidos.FindAsync(PedidoID);
                         
                     if (pedidoEliminar != null)
                     {

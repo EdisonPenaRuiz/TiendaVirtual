@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 //Interfaces
 builder.Services.AddTransient<ILoginRepository, LoginRepository>();
 builder.Services.AddTransient<IUsuariosRepository, UsuariosRepository>();
+builder.Services.AddTransient<IPedidosRepository, PedidosRepository>();
 
 
 //DBContext

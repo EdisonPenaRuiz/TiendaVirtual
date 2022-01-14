@@ -19,9 +19,9 @@ namespace TiendaVirtual.Infrastruture.Repositories
             _context = context;
         }
 
-       public async Task<RepuestasServidorGenericas<Usuario>> LoginUsuario(string NombreUsuario, string Contrasena)
+       public async Task<RepuestasServidorGenericas<Core.Entities.Usuario>> LoginUsuario(string NombreUsuario, string Contrasena)
        {
-            var Repuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { },new List<Usuario>() { }, true,null) { };
+            var Repuesta = new RepuestasServidorGenericas<Core.Entities.Usuario>(new Usuario() { },new List<Usuario>() { }, true,null) { };
             try
             {
                 var usuarioLoguin = await _context.Usuarios.Where(x => x.NombreUsuario == NombreUsuario && x.Contrasena == Contrasena).ToListAsync();

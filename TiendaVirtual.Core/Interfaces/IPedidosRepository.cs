@@ -13,7 +13,10 @@ namespace TiendaVirtual.Core.Interfaces
 
         public Task<RepuestasServidorGenericas<ListadoPedido>> ObtenerPedidosPorUsuarioID(int UsuarioID);
 
-        public Task<RepuestasServidorGenericas<Pedido>> AgregarPedidos(List<Pedido> Pedidos);
+        public Task<RepuestasServidorGenericas<Pedido>> AgregarPedido(Pedido Pedido);
 
+        public Task<RepuestasServidorGenericas<Pedido>> ActualizarPedido(Pedido Pedido, int PedidoID);
+        
+        public Task<RepuestasServidorGenericas<Pedido>> EliminarPedido(int PedidoID);
     }
 }
