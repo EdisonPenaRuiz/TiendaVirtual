@@ -1,0 +1,48 @@
+
+.imagen {
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+}
+
+input.ng-invalid.ng-touched {
+  background: transparent;
+  border: 1px red solid;
+  transition: all 0.7s ease;
+}
+
+input.ng-valid.ng-touched {
+  background: transparent;
+  border: 1px rgb(9, 197, 18) solid;
+  transition: all 0.7s ease;
+}
+
+.border-bottom-red {
+  border: none;
+  border: 1px red solid;
+  transition: all 0.7s ease;
+  color: red;
+}
+
+.border-bottom-green {
+  border: none;
+  border: 1px rgb(9, 197, 18) solid;
+  transition: all 0.7s ease;
+  color: rgb(9, 197, 18)
+}
+
+
+@font-face {
+  font-family: 'pinyo';
+  src: url('../../../assets/Fonts/OFL.txt');
+}
+
+p {
+  font-family: 'Times New Roman', Times, serif, cursive;
+  font-weight: bold;
+  font-size: 200%;
+}
+
+.cursoPointer {
+  cursor: pointer
+}

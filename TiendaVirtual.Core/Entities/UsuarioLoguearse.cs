@@ -8,7 +8,7 @@ namespace TiendaVirtual.Core.Entities
 {
     public class UsuarioLoguearse
     {
-        public string NombreUsuario { get; set; } = null!;
+        public string Usuario { get; set; } = null!;
         public string Contrasena { get; set; } = null!;
     }
 }

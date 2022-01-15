@@ -1,0 +1,14 @@
+<div class="principal text-center shadow-sm " [ngClass]="{'p-0':ocultarTexto==true}" style="min-height:100vh">
+  <div style="width: 100%;">
+    <i id="boton" class="fas fa-align-justify mt-2 mb-2 mr-2" style="cursor: pointer;font-size:120%" (click)="AbrirMenu()"></i>
+  </div>
+  
+  <hr style="color: rgb(29, 9, 107);margin: 5% 5%;">
+  <ol [ngClass]="{'text-left m-2':ocultarTexto==false,'text-center':ocultarTexto==true}">
+    <li style="list-style:none"><i [ngClass]="{'IconMedianos':ocultarTexto}" class="fas fa-shopping-cart mt-3"></i><span *ngIf="!ocultarTexto"> Mis Pedidos</span></li>
+    <li style="list-style:none"><i [ngClass]="{'IconMedianos':ocultarTexto}" class="fas fa-credit-card mt-3"></i><span *ngIf="!ocultarTexto"> Mi Formas De Pagos</span></li>
+    <li style="list-style:none"><i [ngClass]="{'IconMedianos':ocultarTexto}" class="fas fa-calculator mt-3"></i><span *ngIf="!ocultarTexto"> Informacion de mi cuenta</span> </li>
+    <li style="list-style:none"><i [ngClass]="{'IconMedianos':ocultarTexto}" class="fas fa-bell mt-3"></i><i></i><span *ngIf="!ocultarTexto"> Mis Mensajes <i class="badge badge-danger rounded-circle p-1">1</i> </span></li>
+    
+  </ol>
+</div>

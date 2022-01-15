@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaVirtual.Api", "TiendaVirtual.Api\TiendaVirtual.Api.csproj", "{E0856727-8A1E-40EC-A015-5FB41A1713D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaVirtual.Infrastruture", "TiendaVirtual.Infrastruture\TiendaVirtual.Infrastruture.csproj", "{3CC43A51-4143-487C-BA92-C75523031509}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVirtual.Infrastruture", "TiendaVirtual.Infrastruture\TiendaVirtual.Infrastruture.csproj", "{3CC43A51-4143-487C-BA92-C75523031509}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaVirtual.Core", "TiendaVirtual.Core\TiendaVirtual.Core.csproj", "{4FFFF0F3-AF11-4714-A05A-0531DE0F0183}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVirtual.Core", "TiendaVirtual.Core\TiendaVirtual.Core.csproj", "{4FFFF0F3-AF11-4714-A05A-0531DE0F0183}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiendaVirtual.Client", "TiendaVirtual.Client\TiendaVirtual.Client.csproj", "{BDEBC70E-5254-43DD-8DFF-00ADE70A1B41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0856727-8A1E-40EC-A015-5FB41A1713D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0856727-8A1E-40EC-A015-5FB41A1713D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0856727-8A1E-40EC-A015-5FB41A1713D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0856727-8A1E-40EC-A015-5FB41A1713D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3CC43A51-4143-487C-BA92-C75523031509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3CC43A51-4143-487C-BA92-C75523031509}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CC43A51-4143-487C-BA92-C75523031509}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{4FFFF0F3-AF11-4714-A05A-0531DE0F0183}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FFFF0F3-AF11-4714-A05A-0531DE0F0183}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FFFF0F3-AF11-4714-A05A-0531DE0F0183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDEBC70E-5254-43DD-8DFF-00ADE70A1B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDEBC70E-5254-43DD-8DFF-00ADE70A1B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDEBC70E-5254-43DD-8DFF-00ADE70A1B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDEBC70E-5254-43DD-8DFF-00ADE70A1B41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
