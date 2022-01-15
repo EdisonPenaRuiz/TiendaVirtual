@@ -3,16 +3,10 @@ using System.Collections.Generic;
 
 namespace TiendaVirtual.Core.Entities
 {
-    public partial class FormaPago
+    public partial class FormasPagosUsuario
     {
-        public FormaPago()
-        {
-            Pedidos = new HashSet<Pedido>();
-        }
-
         public int FormaPagoId { get; set; }
         public string Nombre { get; set; } = null!;
-
-        public virtual ICollection<Pedido> Pedidos { get; set; }
+        public int UsuarioId { get; set; }
     }
 }

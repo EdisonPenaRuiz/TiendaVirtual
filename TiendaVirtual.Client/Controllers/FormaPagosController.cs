@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TiendaVirtual.Core.Entities;
+using TiendaVirtual.Core.Interfaces;
 using TiendaVirtual.Infrastruture.Data;
 
 namespace TiendaVirtual.Api.Controllers
@@ -15,109 +16,78 @@ namespace TiendaVirtual.Api.Controllers
     [ApiController]
     public class FormaPagosController : ControllerBase
     {
-        private readonly TiendaVirtualContext _context;
+        private readonly IFormasPagosUsuarioRepository _formapagousuario;
 
-        public FormaPagosController(TiendaVirtualContext context)
+        public FormaPagosController(IFormasPagosUsuarioRepository formaPagoUsuarios)
         {
-            _context = context;
+            
+            _formapagousuario= formaPagoUsuarios;
         }
-
-        // GET: api/FormaPagos
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<FormaPago>>> GetFormaPagos()
-        {
-            return await _context.FormaPagos.ToListAsync();
-        }
-
         // GET: api/FormaPagos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<FormaPago>> GetFormaPago(int id)
+        public async Task<ActionResult<FormasPagosUsuario>> ObtenerFormasPagosPorUsuarioID(int Usuarioid)
         {
-            var formaPago = await _context.FormaPagos.FindAsync(id);
+            var FormaPagosReturn = new Object();
 
-            if (formaPago == null)
+            try
             {
-                return NotFound();
+                FormaPagosReturn = await _formapagousuario.ObtenerFormasPagosPorUsuarioID(Usuarioid);
             }
+            catch (Exception e)
+            {
 
-            return formaPago;
+            }
+            return Ok(FormaPagosReturn);
         }
 
         // PUT: api/FormaPagos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFormaPago(int id, FormaPago formaPago)
+        public async Task<IActionResult> ActualizarFormaDePago(FormasPagosUsuario formaPago)
         {
-            if (id != formaPago.FormaPagoId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(formaPago).State = EntityState.Modified;
-
+            var FormaPagoActualizado = new Object();
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
+                await _formapagousuario.ActualizarFormasPagosPorUsuarioID(formaPago);
+            }catch(Exception e)
             {
-                if (!FormaPagoExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return NoContent();
+            }
+            return Ok(FormaPagoActualizado);
         }
 
         // POST: api/FormaPagos
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<FormaPago>> PostFormaPago(FormaPago formaPago)
+        public async Task<IActionResult> AgregarFormaDePago(FormasPagosUsuario formaPago)
         {
-            _context.FormaPagos.Add(formaPago);
+            var FormaPagoActualizado = new Object();
             try
             {
-                await _context.SaveChangesAsync();
+                await _formapagousuario.AgregarFormasPagosPorUsuarioID(formaPago);
             }
-            catch (DbUpdateException)
+            catch (Exception e)
             {
-                if (FormaPagoExists(formaPago.FormaPagoId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return CreatedAtAction("GetFormaPago", new { id = formaPago.FormaPagoId }, formaPago);
+            }
+            return Ok(FormaPagoActualizado);
         }
 
         // DELETE: api/FormaPagos/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteFormaPago(int id)
+        public async Task<IActionResult> EliminarFormaDePago(FormasPagosUsuario formaPago)
         {
-            var formaPago = await _context.FormaPagos.FindAsync(id);
-            if (formaPago == null)
+            var FormaPagoActualizado = new Object();
+            try
             {
-                return NotFound();
+                await _formapagousuario.EliminarFormasPagosPorUsuarioID(formaPago);
             }
+            catch (Exception e)
+            {
 
-            _context.FormaPagos.Remove(formaPago);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            }
+            return Ok(FormaPagoActualizado);
         }
 
-        private bool FormaPagoExists(int id)
-        {
-            return _context.FormaPagos.Any(e => e.FormaPagoId == id);
-        }
     }
 }
