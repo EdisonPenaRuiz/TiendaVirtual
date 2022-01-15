@@ -22,12 +22,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\Models\Login.Model.ts" />
+    <None Remove="ClientApp\src\app\Models\RetornoServidor.Model.ts" />
+    <None Remove="ClientApp\src\app\Models\UsuarioModel.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TiendaVirtual.Core\TiendaVirtual.Core.csproj" />
     <ProjectReference Include="..\TiendaVirtual.Infrastruture\TiendaVirtual.Infrastruture.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <TypeScriptCompile Include="ClientApp\src\app\Models\Login.Model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Models\RetornoServidor.Model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Models\UsuarioModel.ts" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
