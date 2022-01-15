@@ -1,1 +1,80 @@
-<p>registro-usuario works!</p>
+<div class="row d-flex align-items-center justify-content-center " style="z-index: 1;min-height:100vh;">
+  <div class="col-5">
+    <form [formGroup]="formulario" (ngSubmit)="Registrar()" class="shadow-sm p-1">
+      <div class="form-group">
+        <div class="row m-2">
+          <div class="d-block text-center col-12 m-0 p-0 h-50">
+            <img class="imagen" src="https://media.istockphoto.com/vectors/online-shopping-digital-store-concept-vector-id1256806812">
+          </div>
+          <div class="d-block text-center col-12 m-0 p-0 h-50">
+            <p>Registro De Usuario</p>
+          </div>
+          <!-----------------------------Nombre Usuario--------------------------------->
+          <div class="col-6 mt-3 mb-3 text-center">
+            <label class="font-weight-bold">Nombre:</label>
+            <div class="input-group-prepend">
+              <div class="input-group-text  bg-white" [class.border-bottom-red]="this.formulario.get('nombre')?.invalid && this.formulario.get('nombre')?.touched" [class.border-bottom-green]="this.formulario.get('nombre')?.valid && this.formulario.get('nombre')?.touched">
+                <i class="fas fa-id-card"></i>
+              </div>
+              <input type="text" name="nombre" formControlName="nombre" autocomplete="off" class="form-control">
+            </div>
+          </div>
+          <!-----------------------------Apellido Usuario--------------------------------->
+          <div class=" col-6 mt-3 mb-3 text-center">
+            <label class="font-weight-bold">Apellido:</label>
+            <div class="input-group-prepend">
+              <div class="input-group-text  bg-white" [class.border-bottom-red]="this.formulario.get('apellido')?.invalid && this.formulario.get('apellido')?.touched" [class.border-bottom-green]="this.formulario.get('apellido')?.valid && this.formulario.get('apellido')?.touched">
+                <i class="fas fa-id-card"></i>
+              </div>
+              <input type="text" name="apellido" formControlName="apellido" autocomplete="off" class="form-control">
+            </div>
+          </div>
+          <!---------------------------- Usuario --------------------------------->
+          <div class="col-6  mt-3 mb-3 text-center">
+            <label class="font-weight-bold">Usuario:</label>
+            <div class="input-group-prepend">
+              <div class="input-group-text  bg-white" [class.border-bottom-red]="this.formulario.get('usuario')?.invalid && this.formulario.get('usuario')?.touched" [class.border-bottom-green]="this.formulario.get('usuario')?.valid && this.formulario.get('usuario')?.touched">
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <input type="text" name="usuario" formControlName="usuario" autocomplete="off" class="form-control">
+            </div>
+          </div>
+          <!-----------------------------Contrasena--------------------------------->
+          <div class="col-6  mt-3 mb-3 text-center">
+            <label class="font-weight-bold">Contraseña:</label>
+            <div class="input-group-prepend ">
+
+              <div class="input-group-text  bg-white" [class.border-bottom-red]="this.formulario.get('contrasena')?.invalid && this.formulario.get('contrasena')?.touched" [class.border-bottom-green]="this.formulario.get('contrasena')?.valid && this.formulario.get('contrasena')?.touched">
+                <i class="fas fa-key"></i>
+              </div>
+              <input type="password" name="contrasena" formControlName="contrasena" autocomplete="off" class="form-control">
+            </div>
+          </div>
+          <!-----------------------------Roles Usuarios--------------------------------->
+          <div class="bg-white col-12 text-center align-items-center font-weight-bold ">
+            <hr class="m-0 p-0" />
+            <label class="text-black">SELECCIONE SU PERFIL</label>
+            <hr class="m-0 p-0"/>
+          </div>
+          <div class="col-6  mt-3 mb-3 justify-content-center d-flex" *ngFor="let rol of RolesUsuarios">
+            <a class="p-2 text-white btn" [ngClass]="{'btn-primary':this.formulario.get('rol')?.value == rol.Codigo,'btn-secondary':this.formulario.get('rol')?.value != rol.Codigo}" (click)="this.formulario.controls['rol'].setValue(rol.Codigo)">
+              <i class="fas" [ngClass]="{'fa-store': rol.Codigo == 2,'fa-shopping-cart':rol.Codigo == 1}"></i> {{rol.Nombre}}
+            </a>
+          </div>
+          <hr class="m-0 p-0"/>
+          <!------------------------------ Botones -------------------------------->
+          <div class="col-12  mt-2 justify-content-center d-flex text-center">
+            <button class="btn btn-danger m-2" [routerLink]="['../login']" type="submit">
+              <i class="fas fa-arrow-left"></i> Regresar
+            </button>
+            <button class="btn btn-success m-2" type="submit">
+              <i class="fas fa-plus"></i> Agregar
+            </button>
+
+          </div>
+
+        </div>
+        </div>
+    </form>
+  </div>
+</div>

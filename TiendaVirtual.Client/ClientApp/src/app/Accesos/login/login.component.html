@@ -35,7 +35,7 @@
           <button class="btn btn-success btn-block w-50 p-2" [ngClass]="{'mt-0':credencialesIncorrectas==true,'mt-4':credencialesIncorrectas==false}" style="margin-bottom: 8px;" *ngIf="cargandoIngresando" disabled> <i class="spinnerSingle"></i> Ingresando...</button>
         </div>
         <div class="input-group justify-content-center mt-2">
-          <small class="text-primary cursoPointer">¿No tiene cuenta?, Registrarse</small>
+          <small class="text-primary cursoPointer" [routerLink]="['../registrar']">¿No tiene cuenta?, Registrarse</small>
         </div>
         <div class="input-group justify-content-center">
           <span for="derechos" class="text-muted d-block text-danger" style="font-size: 14px;height: 10%;" [ngClass]="{'mt-2':credencialesIncorrectas==true,'mt-3':credencialesIncorrectas==false}">Derechos reservados &#169; {{anno}} Edison Peña</span>

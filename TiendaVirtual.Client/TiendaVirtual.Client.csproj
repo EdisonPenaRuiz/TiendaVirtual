@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\Models\DiccionarioGenericoModel.ts" />
     <None Remove="ClientApp\src\app\Models\Login.Model.ts" />
     <None Remove="ClientApp\src\app\Models\RetornoServidor.Model.ts" />
     <None Remove="ClientApp\src\app\Models\UsuarioModel.ts" />
@@ -33,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\Models\DiccionarioGenericoModel.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\Login.Model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\RetornoServidor.Model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\UsuarioModel.ts" />

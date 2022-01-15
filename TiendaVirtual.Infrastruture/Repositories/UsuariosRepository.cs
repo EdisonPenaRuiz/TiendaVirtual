@@ -20,19 +20,25 @@ namespace TiendaVirtual.Infrastruture.Repositories
             _context = context;
         }
 
-        public async Task<RepuestasServidorGenericas<Usuario>> AgregarUsuario(Usuario usuario)
+        public async Task<RepuestasServidorGenericas<Usuario>> AgregarUsuario(Usuario usuarioEnviado)
         {
             var Respuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { }, new List<Usuario>() { }, true) { };
             try
             {
                 //Verificamos si ya existe un usuario con las credenciales introducidas
                 
-                if (_context.Usuarios.Where(usuario => usuario.NombreUsuario==usuario.NombreUsuario).Count() == 0) {
-                  _context.Usuarios.Add(usuario);
+                if (_context.Usuarios.Where(usuario => usuario.NombreUsuario== usuarioEnviado.NombreUsuario).Count() == 0) {
+                    var NuevoUsuarioID = _context.Usuarios.Select(usuario => usuario.UsuarioId).Max() + 1;
+
+                    //Agregando nuevo usuarioID a nuevo usuario 
+
+                    usuarioEnviado.UsuarioId = NuevoUsuarioID;
+
+                    _context.Usuarios.Add(usuarioEnviado);
                   await _context.SaveChangesAsync();
-                    Respuesta = new RepuestasServidorGenericas<Usuario>(usuario, new List<Usuario>() { }, true);
+                    Respuesta = new RepuestasServidorGenericas<Usuario>(usuarioEnviado, new List<Usuario>() { }, true);
                 
-                } else if (_context.Usuarios.Where(usuario => usuario.NombreUsuario == usuario.NombreUsuario).Count() > 0) 
+                } else if (_context.Usuarios.Where(usuario => usuario.NombreUsuario == usuarioEnviado.NombreUsuario).Count() > 0) 
                 {
                     Respuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { },new List<Usuario>() { }, true, "Ya existe un usuario con el nombre de usuario introducido");
                 }

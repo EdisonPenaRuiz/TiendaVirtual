@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { LoginModel } from '../../Models/Login.Model';
 import { Respuesta, RetornoServidor } from '../../Models/RetornoServidor.Model';
-import { ServicioAutenticacionService } from '../../Servicios/servicio-autenticacion.service';
+import { ServicioAutenticacion } from '../../Servicios/servicio-autenticacion.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
 
   formulario: FormGroup;
-  constructor(private AutenticacionServicio: ServicioAutenticacionService, private route: Router, private formService: FormBuilder) {
+  constructor(private AutenticacionServicio: ServicioAutenticacion, private route: Router, private formService: FormBuilder) {
     this.formulario = this.formService.group({
       usuario: ['', [Validators.required, Validators.minLength(1)]],
       contrasena: ['', [Validators.required, Validators.minLength(1)]]
@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
     this.formularioEnviado = true;
     this.credencialesIncorrectas = false;
 
-    console.log(this.formulario);
     if (this.formulario.invalid == false) {
       this.formularioEnviado = false;
       this.cargandoIngresando = true;
