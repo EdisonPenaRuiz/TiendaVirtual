@@ -24,6 +24,7 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\Models\DiccionarioGenericoModel.ts" />
     <None Remove="ClientApp\src\app\Models\Login.Model.ts" />
+    <None Remove="ClientApp\src\app\Models\PedidosModel.ts" />
     <None Remove="ClientApp\src\app\Models\RetornoServidor.Model.ts" />
     <None Remove="ClientApp\src\app\Models\UsuarioModel.ts" />
   </ItemGroup>
@@ -36,12 +37,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\Models\DiccionarioGenericoModel.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\Login.Model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Models\PedidosModel.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\RetornoServidor.Model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\UsuarioModel.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\app\Componentes\" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

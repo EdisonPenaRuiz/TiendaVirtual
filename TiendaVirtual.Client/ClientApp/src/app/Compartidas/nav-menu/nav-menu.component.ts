@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServicioLocalStorage } from '../../Servicios/servicio-local-storage.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavMenuComponent {
 
-  constructor(private Router: Router) {
+  constructor(private Router: Router, private ServicioLocalStorage: ServicioLocalStorage) {
 
   }
 
@@ -22,5 +23,7 @@ export class NavMenuComponent {
   AbrirMenu() {
     this.ocultarMenu.emit(false);
   }
+
+  
   
 }

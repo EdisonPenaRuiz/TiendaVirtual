@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { LoginModel } from '../Models/Login.Model';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class ServicioAutenticacion {
     this.UrlBase = baseUrl;
   }
 
-  Login(Usuario: LoginModel) {
+  Login(Usuario: LoginModel): Observable<any> {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.httpClient.post(this.UrlBase + 'api/Login', Usuario, { headers: headers });

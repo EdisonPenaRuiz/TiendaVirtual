@@ -1,0 +1,38 @@
+<div class="row">
+
+  <div class="col-12">
+
+    <div class="card text-center mt-2">
+      <div class="card-header text-left bg-white">
+        <h5 class="card-title"><i class="fas fa-shopping-cart"></i> Pedidos De {{NombreComprador}} {{ApellidoComprador}}</h5>
+      </div>
+      <div class="card-body">
+        <div class="col-12" *ngIf="Pedidos.length > 0">
+          <div class="row">
+            <app-card-pedidos-comprador class="col-4" *ngFor="let pedido of Pedidos"
+                                        [PedidoId]="pedido.pedidoID"
+                                        [PaisDestino]="pedido.paisDestino"
+                                        [ProvinciaDestino]="pedido.provinciaDestino"
+                                        [SectorDestino]="pedido.sectorDestino"
+                                        [FormaPago]="pedido.formaDePago"
+                                        [Precio]="pedido.precio"
+                                        [Articulo]="pedido.nombre">
+
+            </app-card-pedidos-comprador>
+          </div>
+          
+        </div>
+        <div class="col-12" *ngIf="Pedidos.length == 0">
+          <div class="alert alert-primary">
+            <h5 class="text-primary"><i class="fas fa-exclamation-circle fa-1x"></i> Este usuario no tiene pedidos </h5>
+          </div>
+        </div>
+
+        </div>
+      </div>
+
+
+  </div>
+ 
+
+</div>
