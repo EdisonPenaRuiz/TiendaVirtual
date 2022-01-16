@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { UsuariosModel } from '../Models/UsuarioModel/UsuarioModel';
 
 @Injectable({
@@ -17,6 +18,6 @@ export class ServicioLocalStorage {
   }
 
   RemoviendoCredencialesLocalStorage() {
-    localStorage.removeItem('credenciales-usuario')
+    localStorage.removeItem('credenciales-usuario');
   }
 }

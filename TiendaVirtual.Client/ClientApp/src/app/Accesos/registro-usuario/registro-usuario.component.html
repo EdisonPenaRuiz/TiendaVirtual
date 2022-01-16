@@ -16,7 +16,7 @@
               <div class="input-group-text  bg-white" [class.border-bottom-red]="this.formulario.get('nombre')?.invalid && this.formulario.get('nombre')?.touched" [class.border-bottom-green]="this.formulario.get('nombre')?.valid && this.formulario.get('nombre')?.touched">
                 <i class="fas fa-id-card"></i>
               </div>
-              <input type="text" name="nombre" formControlName="nombre" autocomplete="off" class="form-control">
+              <input type="text" name="nombre"  formControlName="nombre" autocomplete="off" class="form-control">
             </div>
           </div>
           <!-----------------------------Apellido Usuario--------------------------------->
@@ -71,7 +71,7 @@
             <button class="btn btn-danger m-2" [routerLink]="['../login']" type="submit">
               <i class="fas fa-arrow-left"></i> Regresar
             </button>
-            <button class="btn btn-success m-2" type="submit">
+            <button [disabled]="this.formulario.invalid" class="btn btn-success m-2" type="submit">
               <i class="fas fa-plus"></i> Agregar
             </button>
 

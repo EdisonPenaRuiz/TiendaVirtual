@@ -22,7 +22,7 @@ export class ProteccionRutaPorRolesGuard implements CanActivate {
       }
     } else {
       validado = false;
-      this.router.navigate(['login'])
+      this.router.navigate(['login']);
     }
     return validado;
   }
