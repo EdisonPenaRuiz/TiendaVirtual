@@ -44,7 +44,8 @@ export class LoginComponent implements OnInit {
       this.cargandoIngresando = true;
       let Usuario: LoginModel = this.formulario.value;
       this.AutenticacionServicio.Login(Usuario).subscribe((resp: RetornoServidor<UsuariosModel>) => {
-       if (resp.operacionExitosa == true && resp.error == null) {
+        console.log(resp);
+        if (resp.operacionExitosa == true && resp.error == null) {
           this.LocalStorageServicio.GuardarCredencialesLocalStorage(resp.resultadoEspecifico)
             setTimeout(() => {
               this.cargandoIngresando = false;
