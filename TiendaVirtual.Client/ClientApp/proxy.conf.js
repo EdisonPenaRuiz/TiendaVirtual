@@ -12,7 +12,8 @@ const PROXY_CONFIG = [
       "/api/Login",
       "/api/Pedidos",
       "/api/Usuarios",
-      "/api/Permisos"
+      "/api/Permisos",
+      "/api/Mensajeria"
    ],
     target: target,
     secure: false
