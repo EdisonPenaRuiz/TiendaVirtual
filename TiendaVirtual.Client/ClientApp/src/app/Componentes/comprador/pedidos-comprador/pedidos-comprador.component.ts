@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import {  PedidosUsuarios } from '../../../Models/PedidosModel';
-import { RetornoServidor } from '../../../Models/RetornoServidor.Model';
+import { RetornoServidor } from '../../../Interfaces/RespuestaGenericasServidorInterface/RetornoServidor.Interface';
+import { PedidosUsuarios } from '../../../Models/PedidosModel/PedidosModel';
 import { ServicioLocalStorage } from '../../../Servicios/servicio-local-storage.service';
 import { ServicioPedidos } from '../../../Servicios/servicio-pedidos.service';
 

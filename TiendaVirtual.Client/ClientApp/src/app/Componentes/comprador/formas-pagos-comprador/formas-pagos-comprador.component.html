@@ -1,1 +1,34 @@
-<p>formas-pagos-comprador works!</p>
+<div class="row">
+
+  <div class="col-12">
+
+    <div class="card text-center mt-2">
+      <div class="card-header text-left bg-white">
+        <h5 class="card-title"><i class="fas fa-money-check-alt"></i> Formas De Pago De {{NombreComprador}} {{ApellidoComprador}}</h5>
+      </div>
+      <div class="card-body">
+        <div class="col-12" *ngIf="FormasDePagos.length > 0">
+          <div class="row" style="max-height:50vh;overflow:auto">
+
+           
+            <div class="card-counter primary col-3" *ngFor="let formaPago of FormasDePagos">
+              <i class="fa fa-money-check-alt float-left"></i>
+              <span class="count-numbers folat-right">{{formaPago.nombre}}</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-12" *ngIf="FormasDePagos.length == 0">
+          <div class="alert alert-primary">
+            <h5 class="text-primary"><i class="fas fa-exclamation-circle fa-1x"></i> Este usuario no tiene formas de pagos agregadas </h5>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>

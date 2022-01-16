@@ -16,7 +16,7 @@ namespace TiendaVirtual.Core.Interfaces
 
         public Task<RepuestasServidorGenericas<FormasPagosUsuario>> AgregarFormasPagosPorUsuarioID(FormasPagosUsuario FormaPago);
 
-        public Task<RepuestasServidorGenericas<FormasPagosUsuario>> EliminarFormasPagosPorUsuarioID(FormasPagosUsuario FormaPago);
+        public Task<RepuestasServidorGenericas<FormasPagosUsuario>> EliminarFormasPagosPorUsuarioID(int FormaPagoID);
 
     }
 }

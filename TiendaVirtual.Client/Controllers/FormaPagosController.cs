@@ -75,12 +75,12 @@ namespace TiendaVirtual.Api.Controllers
 
         // DELETE: api/FormaPagos/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> EliminarFormaDePago(FormasPagosUsuario formaPago)
+        public async Task<IActionResult> EliminarFormaDePago(int formaPagoID)
         {
             var FormaPagoActualizado = new Object();
             try
             {
-                await _formapagousuario.EliminarFormasPagosPorUsuarioID(formaPago);
+                await _formapagousuario.EliminarFormasPagosPorUsuarioID(formaPagoID);
             }
             catch (Exception e)
             {

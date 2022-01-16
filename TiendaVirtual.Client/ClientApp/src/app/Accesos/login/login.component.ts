@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { LoginModel } from '../../Models/Login.Model';
-import { RetornoServidor } from '../../Models/RetornoServidor.Model';
-import { UsuariosModel } from '../../Models/UsuarioModel';
+import { RetornoServidor } from '../../Interfaces/RespuestaGenericasServidorInterface/RetornoServidor.Interface';
+import { LoginModel } from '../../Models/LoginModel/Login.Model';
+import { UsuariosModel } from '../../Models/UsuarioModel/UsuarioModel';
 import { ServicioAutenticacion } from '../../Servicios/servicio-autenticacion.service';
 import { ServicioLocalStorage } from '../../Servicios/servicio-local-storage.service';
 

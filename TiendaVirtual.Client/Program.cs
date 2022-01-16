@@ -14,6 +14,7 @@ builder.Services.AddTransient<ILoginRepository, LoginRepository>();
 builder.Services.AddTransient<IUsuariosRepository, UsuariosRepository>();
 builder.Services.AddTransient<IPedidosRepository, PedidosRepository>();
 builder.Services.AddTransient<IArticulosRepository, ArticulosRepository>();
+builder.Services.AddTransient<IFormasPagosUsuarioRepository, FormasPagosUsuarios>();
 
 
 //DBContext

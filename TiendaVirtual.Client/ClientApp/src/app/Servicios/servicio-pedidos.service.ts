@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { RetornoServidor } from '../Models/RetornoServidor.Model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,6 @@ export class ServicioPedidos {
   }
 
   ObtenerPedidosPorUsuarioID(usuarioID: number): any{
-    console.log(this.BaseUrl + `api/Pedidos/${usuarioID}`);
     return this.http.get(this.BaseUrl + `api/Pedidos/${usuarioID}`);
   }
 }

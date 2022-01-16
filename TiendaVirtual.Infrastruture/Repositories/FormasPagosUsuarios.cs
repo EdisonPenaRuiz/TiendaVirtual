@@ -98,16 +98,20 @@ namespace TiendaVirtual.Infrastruture.Repositories
             }
             return Respuesta;
         }
-        public async Task<RepuestasServidorGenericas<FormasPagosUsuario>> EliminarFormasPagosPorUsuarioID(FormasPagosUsuario FormaPago)
+        public async Task<RepuestasServidorGenericas<FormasPagosUsuario>> EliminarFormasPagosPorUsuarioID(int FormaPagoID)
         {
             var Respuesta = new RepuestasServidorGenericas<FormasPagosUsuario>(new FormasPagosUsuario() { }, new List<FormasPagosUsuario>() { }, true, null);
 
             try
             {
-                if (FormaPago != null)
+                if (FormaPagoID != null)
                 {
-                    if (_context.FormasPagosUsuarios.Where(formaPago => formaPago.FormaPagoId == FormaPago.FormaPagoId).Count() > 0)
+                    if (_context.FormasPagosUsuarios.Where(formaPago => formaPago.FormaPagoId == FormaPagoID).Count() > 0)
                     {
+
+                        var FormaPago = await _context.FormasPagosUsuarios.FindAsync(FormaPagoID);
+                       
+
                         _context.FormasPagosUsuarios.Remove(FormaPago);
                         await _context.SaveChangesAsync();
 

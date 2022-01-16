@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DiccionarioGenericoModel } from '../../Models/DiccionarioGenericoModel';
-import { UsuariosModel } from '../../Models/UsuarioModel';
+import { DiccionarioGenericoModel } from '../../Models/DiccionarioGenericoModel/DiccionarioGenericoModel';
+import { UsuariosModel } from '../../Models/UsuarioModel/UsuarioModel';
 import { ServicioAutenticacion } from '../../Servicios/servicio-autenticacion.service';
 import { ServicioUsuarios } from '../../Servicios/servicio-usuarios.service';
 
