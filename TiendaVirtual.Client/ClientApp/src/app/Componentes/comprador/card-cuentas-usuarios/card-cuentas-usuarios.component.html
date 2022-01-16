@@ -1,15 +1,28 @@
-<div class="shadow-sm  m-3 rounded border">
-  <div class="row m-2 ">
+<!--<div class="shadow-sm  m-3 rounded border card-counter success">
+  <div class=" col-3">
+    <i class="fa fa-money-check-alt float-left"></i>
+    <span class="float-left">Cuenta # {{CuentaID}}</span>
+    <span class="align-middle">{{NumeroTarjeta}}</span>
+    <h5 class="align-middle count-numbers">{{Balance|currency}}</h5>
+  </div>
+  <div class=" row ">
+    <i class="fa fa-money-check-alt float-left"></i>
     <div class="col-12 text-left">
       <h5>Cuenta #{{CuentaID}}</h5>
     </div>
     <div class="col-12 text-center mt-3">
       <h5 class="align-middle">{{NumeroTarjeta}}</h5>
     </div>
-   
+
     <div class="col-12 text-center mt-3">
-      <h5 class="align-middle">{{Balance|currency}}</h5>
+      <h5 class="align-middle count-numbers">{{Balance|currency}}</h5>
     </div>
 
   </div>
+</div>-->
+<div class="card-counter success">
+  <i class="fas fa-wallet float-left"></i>
+  <span class="count-name">Cuenta #{{CuentaID}}</span>
+  <span class="count-numbers">{{Balance|currency}}</span>
+  
 </div>

@@ -9,16 +9,18 @@
       <div class="card-body">
         <div class="col-12" *ngIf="Pedidos.length > 0">
           <div class="row">
-            <app-card-pedidos-comprador class="col-4" *ngFor="let pedido of Pedidos"
-                                        [PedidoId]="pedido.pedidoID"
-                                        [PaisDestino]="pedido.paisDestino"
-                                        [ProvinciaDestino]="pedido.provinciaDestino"
-                                        [SectorDestino]="pedido.sectorDestino"
-                                        [FormaPago]="pedido.formaDePago"
-                                        [Precio]="pedido.precio"
-                                        [Articulo]="pedido.nombre">
+            <div class="col-4" *ngFor="let pedido of Pedidos">
+              <app-card-pedidos-comprador class="col-4"
+                                          [PedidoId]="pedido.pedidoID"
+                                          [PaisDestino]="pedido.paisDestino"
+                                          [ProvinciaDestino]="pedido.provinciaDestino"
+                                          [SectorDestino]="pedido.sectorDestino"
+                                          [FormaPago]="pedido.formaDePago"
+                                          [Precio]="pedido.precio"
+                                          [Articulo]="pedido.nombre">
 
-            </app-card-pedidos-comprador>
+              </app-card-pedidos-comprador>
+            </div>
           </div>
           
         </div>

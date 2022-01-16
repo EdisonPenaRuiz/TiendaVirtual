@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ServicioLocalStorage } from '../../Servicios/servicio-local-storage.service';
 
 @Component({
   selector: 'app-head',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private ServicioLocalStorage: ServicioLocalStorage) { }
 
   ngOnInit(): void {
+  }
+
+  LogOut() {
+    this.ServicioLocalStorage.RemoviendoCredencialesLocalStorage();
+    this.router.navigate(['login']);
   }
 
 }

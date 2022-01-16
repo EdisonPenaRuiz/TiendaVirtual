@@ -7,7 +7,7 @@
       <div class="card-body">
         <div class="col-12" *ngIf="Cuentas.length > 0">
           <div class="row" style="max-height:50vh;overflow:auto">
-            <div *ngFor="let cuenta of Cuentas" class="col-6">
+            <div *ngFor="let cuenta of Cuentas" class="col-4">
               <card-cuentas-usuarios [NumeroTarjeta]="cuenta.numeroTarjerta" [CuentaID]="cuenta.cuentaId" [Balance]="cuenta.balance"></card-cuentas-usuarios>
             </div>
           </div>

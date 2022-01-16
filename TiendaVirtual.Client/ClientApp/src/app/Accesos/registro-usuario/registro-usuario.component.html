@@ -37,7 +37,9 @@
                 <i class="fas fa-user-circle"></i>
               </div>
               <input type="text" name="usuario" formControlName="usuario" autocomplete="off" class="form-control">
+              
             </div>
+            <small class="text-danger d-block">{{mensajeError}}</small>
           </div>
           <!-----------------------------Contrasena--------------------------------->
           <div class="col-6  mt-3 mb-3 text-center">
@@ -63,7 +65,9 @@
           </div>
           <hr class="m-0 p-0"/>
           <!------------------------------ Botones -------------------------------->
+         
           <div class="col-12  mt-2 justify-content-center d-flex text-center">
+            
             <button class="btn btn-danger m-2" [routerLink]="['../login']" type="submit">
               <i class="fas fa-arrow-left"></i> Regresar
             </button>

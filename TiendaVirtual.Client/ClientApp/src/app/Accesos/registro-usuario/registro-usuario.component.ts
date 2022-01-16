@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { RetornoServidor } from '../../Interfaces/RespuestaGenericasServidorInterface/RetornoServidor.Interface';
 import { DiccionarioGenericoModel } from '../../Models/DiccionarioGenericoModel/DiccionarioGenericoModel';
 import { UsuariosModel } from '../../Models/UsuarioModel/UsuarioModel';
 import { ServicioAutenticacion } from '../../Servicios/servicio-autenticacion.service';
@@ -44,15 +46,23 @@ export class RegistroUsuarioComponent implements OnInit {
       this.formulario.controls['contrasena'].value,
       this.formulario.controls['rol'].value
     );
-    this.UsuariosServicio.AgregarUsuario(usuarioEnviar).subscribe((resp: any) => {
-      console.log(resp);
-      if (resp['operacionExitosa'] == true && resp['error'] == null) {
+    this.UsuariosServicio.AgregarUsuario(usuarioEnviar).subscribe((resp: RetornoServidor<UsuariosModel>) => {
+      if (resp.operacionExitosa == true && resp.error == null) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Operacion Realizada!',
+          text: `Se ha registrado correctamente el usuario ${resp.resultadoEspecifico.nombre} ${resp.resultadoEspecifico.apellido}`
+        })
         this.route.navigate(['/Acceso/login']);
-      } else {
-        this.mensajeError = resp['error'];
+      } else if (resp.operacionExitosa == true && resp.error != null) {
+        this.mensajeError = resp.error
       }
     }, error => {
-      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Ha ocurrido un error',
+        text: error.status == 404 ? 'No se encontro el servidor' : error.error
+      })
     });
 
   }

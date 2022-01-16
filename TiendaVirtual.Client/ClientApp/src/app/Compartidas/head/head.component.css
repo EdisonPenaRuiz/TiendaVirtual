@@ -5,6 +5,13 @@
 
 
 
+.imagen {
+  width: 40px;
+  height:40px;
+  border-radius: 50%;
+  margin:3px;
+  margin-left:10px
+}
 
 @font-face {
   font-family: 'pinyo';
@@ -12,154 +19,3 @@
 }
 
 
-
-
-@media (max-width:1500px){
-  h6{
-    font-family: 'Pinyon Script', cursive;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  .nav{
-    position: absolute;
-    width: 100%;
-    height: auto;
-    background: white;
-    color:rgb(29, 9, 107) ;
-    box-shadow: 0px 0px 5px black;
-  }
-  .nombreEmpresa{
-    width: 60%;
-  }
-
-  .salir{
-    width: 40%;
-  }
-
-}
-
-@media (max-width:1100px){
-  h6{
-    font-family: 'Pinyon Script', cursive;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  .nav{
-    position: absolute;
-    width: 100%;
-    height: auto;
-    background: white;
-    color:rgb(29, 9, 107) ;
-    box-shadow: 0px 0px 5px black;
-  }
-  .nombreEmpresa{
-    width: 60%;
-  }
-
-  .salir{
-    width: 40%;
-  }
-
-
-}
-@media (max-width:800px){
-  h6{
-    margin-top: 3px;
-    margin-bottom: 3px;
-    font-family: 'Pinyon Script', cursive;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  .nav{
-    position: absolute;
-    width: 100%;
-    height: auto;
-    background: white;
-    color:rgb(29, 9, 107) ;
-    box-shadow: 0px 0px 5px black;
-  }
-  .nombreEmpresa{
-    width: 75%;
-  }
-
-  .salir{
-    width: 25%;
-  }
-
-
-}
-@media (max-width:760px){
-  h6{
-    margin-top: 3px;
-    margin-bottom: 3px;
-    font-family: 'Pinyon Script', cursive;
-    font-weight: bold;
-    font-size:25px;
-  }
-  .nav{
-    position: absolute;
-    width: 100%;
-    height: auto;
-    background: white;
-    color:rgb(29, 9, 107) ;
-    box-shadow: 0px 0px 5px black;
-  }
-  .nombreEmpresa{
-    width: 70%;
-  }
-
-  .salir{
-    width: 30%;
-  }
-
-}
-@media (max-width:610px){
-  h6{
-    margin-top: 3px;
-    margin-bottom: 3px;
-    font-family: 'Pinyon Script', cursive;
-    font-weight: bold;
-    font-size: 25px;
-  }
-  .nav{
-    position: absolute;
-    width: 100%;
-    height: auto;
-    background: white;
-    color:rgb(29, 9, 107) ;
-    box-shadow: 0px 0px 5px black;
-  }
-  .nombreEmpresa{
-    width: 70%;
-  }
-
-  .salir{
-    width: 30%;
-  }
-
-}
-
-@media (max-width:450px){
-  h6{
-    margin-top: 3px;
-    margin-bottom: 3px;
-    font-family: 'Pinyon Script', cursive;
-    font-weight: bold;
-    font-size: 22px;
-  }
-  .nav{
-    position: absolute;
-    width: 100%;
-    height: auto;
-    background: white;
-    color:rgb(29, 9, 107) ;
-    box-shadow: 0px 0px 5px black;
-  }
-  .nombreEmpresa{
-    width: 75%;
-  }
-
-  .salir{
-    width: 25%;
-  }
-}
