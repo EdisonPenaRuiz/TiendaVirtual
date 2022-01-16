@@ -62,7 +62,11 @@ namespace TiendaVirtual.Infrastruture.Data
                     .ValueGeneratedNever()
                     .HasColumnName("CuentaID");
 
-                entity.Property(e => e.Monto).HasColumnType("money");
+                entity.Property(e => e.Balance).HasColumnType("money");
+
+                entity.Property(e => e.NumeroTarjerta)
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
 
@@ -152,6 +156,7 @@ namespace TiendaVirtual.Infrastruture.Data
 
                 entity.Property(e => e.RolId).HasColumnName("RolID");
 
+               
             });
 
             OnModelCreatingPartial(modelBuilder);

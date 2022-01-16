@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TiendaVirtual.Core.Entities;
+using TiendaVirtual.Core.Interfaces;
 using TiendaVirtual.Infrastruture.Data;
 
 namespace TiendaVirtual.Api.Controllers
@@ -15,109 +16,84 @@ namespace TiendaVirtual.Api.Controllers
     [ApiController]
     public class CuentasController : ControllerBase
     {
-        private readonly TiendaVirtualContext _context;
+        private readonly ICuentaRepository _IcuentaRepository;
 
-        public CuentasController(TiendaVirtualContext context)
+        public CuentasController(ICuentaRepository ICuentaRepository)
         {
-            _context = context;
+            _IcuentaRepository = ICuentaRepository;
         }
 
-        // GET: api/Cuentas
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cuenta>>> GetCuentas()
-        {
-            return await _context.Cuentas.ToListAsync();
-        }
 
         // GET: api/Cuentas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Cuenta>> GetCuenta(int id)
+        public async Task<ActionResult<Cuenta>> ObtenerCuentaPorUsuario(int id)
         {
-            var cuenta = await _context.Cuentas.FindAsync(id);
-
-            if (cuenta == null)
-            {
-                return NotFound();
-            }
-
-            return cuenta;
-        }
-
-        // PUT: api/Cuentas/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCuenta(int id, Cuenta cuenta)
-        {
-            if (id != cuenta.CuentaId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(cuenta).State = EntityState.Modified;
-
+            var CuentaReturn = new Object();
             try
             {
-                await _context.SaveChangesAsync();
+                CuentaReturn = await _IcuentaRepository.ObtenerCuentaPorUsuarioID(id);
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception e)
             {
-                if (!CuentaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return NoContent();
+            }
+            return Ok(CuentaReturn);
         }
 
         // POST: api/Cuentas
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Cuenta>> PostCuenta(Cuenta cuenta)
+        public async Task<ActionResult<Cuenta>> AgregarCuenta(Cuenta Cuenta)
         {
-            _context.Cuentas.Add(cuenta);
+            var CuentaReturn = new Object();
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (CuentaExists(cuenta.CuentaId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                CuentaReturn = await _IcuentaRepository.AgregarCuenta(Cuenta);
 
-            return CreatedAtAction("GetCuenta", new { id = cuenta.CuentaId }, cuenta);
+            }
+            catch (Exception e)
+            {
+                CuentaReturn = e;
+            }
+            return Ok(CuentaReturn);
         }
+
+        // PUT: api/Cuentas/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ActualizarCuenta(Cuenta Cuenta)
+        {
+            var CuentasReturn = new Object();
+            try
+            {
+                CuentasReturn = await _IcuentaRepository.ActualizarCuenta(Cuenta);
+
+            }
+            catch (Exception e)
+            {
+                CuentasReturn = e;
+            }
+            return Ok(CuentasReturn);
+        }
+
+
 
         // DELETE: api/Cuentas/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCuenta(int id)
+        public async Task<IActionResult> EliminarCuenta(int id)
         {
-            var cuenta = await _context.Cuentas.FindAsync(id);
-            if (cuenta == null)
+            var CuentaReturn = new Object();
+            try
             {
-                return NotFound();
+                CuentaReturn = await _IcuentaRepository.EliminarCuenta(id);
+
             }
-
-            _context.Cuentas.Remove(cuenta);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            catch (Exception e)
+            {
+                CuentaReturn = e;
+            }
+            return Ok(CuentaReturn);
         }
 
-        private bool CuentaExists(int id)
-        {
-            return _context.Cuentas.Any(e => e.CuentaId == id);
-        }
     }
 }

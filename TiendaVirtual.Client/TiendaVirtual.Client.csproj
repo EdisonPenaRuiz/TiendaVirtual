@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\Models\CuentasModel\Cuentas.Model.ts" />
     <None Remove="ClientApp\src\app\Models\DiccionarioGenericoModel.ts" />
     <None Remove="ClientApp\src\app\Models\FormasPagosModel\FormasPagosUsuarios.Model.ts" />
     <None Remove="ClientApp\src\app\Models\Login.Model.ts" />
@@ -40,6 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\Models\CuentasModel\Cuentas.Model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\DiccionarioGenericoModel\DiccionarioGenericoModel.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\FormasPagosModel\FormasPagosUsuarios.Model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\LoginModel\Login.Model.ts" />

@@ -7,7 +7,7 @@
   <ol [ngClass]="{'text-left m-2':ocultarTexto==false,'text-center':ocultarTexto==true}">
     <li class="CursorPointer" style="list-style:none" [routerLink]="['Comprador/Pedidos']"><i  [ngClass]="{'IconMedianos':ocultarTexto}" class="fas fa-shopping-cart mt-3"></i><span *ngIf="!ocultarTexto"> Mis Pedidos</span></li>
     <li class="CursorPointer" style="list-style:none" [routerLink]="['Comprador/FormasPagos']"><i [ngClass]="{'IconMedianos':ocultarTexto}" class="fas fa-credit-card mt-3"></i><span *ngIf="!ocultarTexto"> Mi Formas De Pagos</span></li>
-    <li class="CursorPointer" style="list-style:none"><i [ngClass]="{'IconMedianos':ocultarTexto}" class="fas fa-calculator mt-3"></i><span *ngIf="!ocultarTexto"> Mis cuentas</span> </li>
+    <li class="CursorPointer" style="list-style:none" [routerLink]="['Comprador/Cuentas']"><i [ngClass]="{'IconMedianos':ocultarTexto}" class="fas fa-calculator mt-3"></i><span *ngIf="!ocultarTexto"> Mis cuentas</span> </li>
     <li class="CursorPointer" style="list-style:none"><i [ngClass]="{'IconMedianos':ocultarTexto}" class="fas fa-bell mt-3"></i><i></i><span *ngIf="!ocultarTexto"> Mis Mensajes <i class="badge badge-danger rounded-circle p-1">1</i> </span></li>
     
   </ol>

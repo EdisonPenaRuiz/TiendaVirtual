@@ -8,6 +8,7 @@ import { CuentasCompradorComponent } from './cuentas-comprador/cuentas-comprador
 import { FormasPagosCompradorComponent } from './formas-pagos-comprador/formas-pagos-comprador.component';
 import { MensajesCompradorComponent } from './mensajes-comprador/mensajes-comprador.component';
 import { CardPedidosCompradorComponent } from './card-pedidos-comprador/card-pedidos-comprador.component';
+import { CardCuentasUsuariosComponent } from './card-cuentas-usuarios/card-cuentas-usuarios.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CardPedidosCompradorComponent } from './card-pedidos-comprador/card-ped
     CuentasCompradorComponent,
     FormasPagosCompradorComponent,
     MensajesCompradorComponent,
-    CardPedidosCompradorComponent
+    CardPedidosCompradorComponent,
+    CardCuentasUsuariosComponent
   ],
   imports: [
     CommonModule,
