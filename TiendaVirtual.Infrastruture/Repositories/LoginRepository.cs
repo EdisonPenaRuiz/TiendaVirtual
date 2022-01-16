@@ -24,7 +24,7 @@ namespace TiendaVirtual.Infrastruture.Repositories
             var Repuesta = new RepuestasServidorGenericas<Core.Entities.Usuario>(new Usuario() { },new List<Usuario>() { }, true,null) { };
             try
             {
-                var usuarioLoguin = await _context.Usuarios.Where(x => x.NombreUsuario == NombreUsuario && x.Contrasena == Contrasena).ToListAsync();
+                var usuarioLoguin = await _context.Usuarios.Where(x => x.NombreUsuario == NombreUsuario && x.Contrasena == Contrasena).Select(usuario => new Usuario {Nombre= usuario.Nombre,Apellido=usuario.Apellido,UsuarioId=usuario.UsuarioId,RolId=usuario.RolId}).ToListAsync();
             
                 if (usuarioLoguin.Count() > 1)
                 {

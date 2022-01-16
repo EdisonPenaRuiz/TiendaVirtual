@@ -19,7 +19,7 @@ namespace TiendaVirtual.Infrastruture.Data
 
         public virtual DbSet<Articulo> Articulos { get; set; } = null!;
         public virtual DbSet<Cuenta> Cuentas { get; set; } = null!;
-        public virtual DbSet<FormaPago> FormaPagos { get; set; } = null!;
+        public virtual DbSet<FormasPagosUsuario> FormasPagosUsuarios { get; set; } = null!;
         public virtual DbSet<Pedido> Pedidos { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
@@ -62,7 +62,11 @@ namespace TiendaVirtual.Infrastruture.Data
                     .ValueGeneratedNever()
                     .HasColumnName("CuentaID");
 
-                entity.Property(e => e.Monto).HasColumnType("money");
+                entity.Property(e => e.Balance).HasColumnType("money");
+
+                entity.Property(e => e.NumeroTarjerta)
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
 
@@ -73,9 +77,9 @@ namespace TiendaVirtual.Infrastruture.Data
                     .HasConstraintName("FK_Cuentas_Usuarios");
             });
 
-            modelBuilder.Entity<FormaPago>(entity =>
+            modelBuilder.Entity<FormasPagosUsuario>(entity =>
             {
-                entity.ToTable("FormaPago");
+                entity.HasKey(e => e.FormaPagoId);
 
                 entity.Property(e => e.FormaPagoId)
                     .ValueGeneratedNever()
@@ -84,6 +88,8 @@ namespace TiendaVirtual.Infrastruture.Data
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+
+                entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
             });
 
             modelBuilder.Entity<Pedido>(entity =>
@@ -110,6 +116,7 @@ namespace TiendaVirtual.Infrastruture.Data
 
                 entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
 
+               
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -148,6 +155,8 @@ namespace TiendaVirtual.Infrastruture.Data
                     .IsUnicode(false);
 
                 entity.Property(e => e.RolId).HasColumnName("RolID");
+
+               
             });
 
             OnModelCreatingPartial(modelBuilder);

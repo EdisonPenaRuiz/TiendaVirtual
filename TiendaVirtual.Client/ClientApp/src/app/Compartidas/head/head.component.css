@@ -1,0 +1,21 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+.imagen {
+  width: 40px;
+  height:40px;
+  border-radius: 50%;
+  margin:3px;
+  margin-left:10px
+}
+
+@font-face {
+  font-family: 'pinyo';
+  src: url('../../../assets/Fonts/OFL.txt');
+}
+
+

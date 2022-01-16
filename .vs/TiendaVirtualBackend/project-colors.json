@@ -30,7 +30,22 @@
       "ProjectGuid": "cc448576-9312-47b4-82c9-71711a500a38",
       "DisplayName": "TiendaVirtualClient",
       "ColorIndex": 4
+    },
+    "5dc4fa8d-8f0c-4425-946e-3dc4923a4884": {
+      "ProjectGuid": "5dc4fa8d-8f0c-4425-946e-3dc4923a4884",
+      "DisplayName": "TIendaVirtualClient",
+      "ColorIndex": 5
+    },
+    "e7fee822-b8b6-4feb-98f0-c71b95677301": {
+      "ProjectGuid": "e7fee822-b8b6-4feb-98f0-c71b95677301",
+      "DisplayName": "TiendaVirtual.Api",
+      "ColorIndex": 6
+    },
+    "bdebc70e-5254-43dd-8dff-00ade70a1b41": {
+      "ProjectGuid": "bdebc70e-5254-43dd-8dff-00ade70a1b41",
+      "DisplayName": "TiendaVirtual.Client",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 5
+  "NextColorIndex": 8
 }

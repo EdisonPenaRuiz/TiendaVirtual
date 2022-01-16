@@ -12,6 +12,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -22,8 +26,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\Models\CuentasModel\Cuentas.Model.ts" />
     <None Remove="ClientApp\src\app\Models\DiccionarioGenericoModel.ts" />
+    <None Remove="ClientApp\src\app\Models\FormasPagosModel\FormasPagosUsuarios.Model.ts" />
     <None Remove="ClientApp\src\app\Models\Login.Model.ts" />
+    <None Remove="ClientApp\src\app\Models\PedidosModel.ts" />
     <None Remove="ClientApp\src\app\Models\RetornoServidor.Model.ts" />
     <None Remove="ClientApp\src\app\Models\UsuarioModel.ts" />
   </ItemGroup>
@@ -34,14 +41,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\Models\DiccionarioGenericoModel.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\Models\Login.Model.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\Models\RetornoServidor.Model.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\Models\UsuarioModel.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\app\Componentes\" />
+    <TypeScriptCompile Include="ClientApp\src\app\Models\CuentasModel\Cuentas.Model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Models\DiccionarioGenericoModel\DiccionarioGenericoModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Models\FormasPagosModel\FormasPagosUsuarios.Model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Models\LoginModel\Login.Model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Models\PedidosModel\PedidosModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Interfaces\RespuestaGenericasServidorInterface\RetornoServidor.Interface.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Models\UsuarioModel\UsuarioModel.ts" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

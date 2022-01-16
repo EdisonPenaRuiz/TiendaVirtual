@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { UsuariosModel } from '../Models/UsuarioModel';
+import { Observable } from 'rxjs';
+import { UsuariosModel } from '../Models/UsuarioModel/UsuarioModel';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ServicioUsuarios {
     this.UrlBase = baseUrl;
   }
 
-  AgregarUsuario(Usuario: UsuariosModel) {
+  AgregarUsuario(Usuario: UsuariosModel): Observable<any> {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.httpClient.post(this.UrlBase + 'api/Usuarios', Usuario, { headers: headers });

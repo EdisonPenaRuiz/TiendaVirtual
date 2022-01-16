@@ -12,8 +12,8 @@ namespace TiendaVirtual.Core.Entities
         public int ArticuloId { get; set; }
         public int FormaPagoId { get; set; }
         public int UsuarioId { get; set; }
-
     }
+
     public partial class ListadoPedido
     {
         public int PedidoID { get; set; }

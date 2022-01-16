@@ -40,7 +40,7 @@ namespace TiendaVirtual.Infrastruture.Repositories
                 
                 } else if (_context.Usuarios.Where(usuario => usuario.NombreUsuario == usuarioEnviado.NombreUsuario).Count() > 0) 
                 {
-                    Respuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { },new List<Usuario>() { }, true, "Ya existe un usuario con el nombre de usuario introducido");
+                    Respuesta = new RepuestasServidorGenericas<Usuario>(new Usuario() { },new List<Usuario>() { }, true, "Ya este nombre de usuario existe");
                 }
 
             }

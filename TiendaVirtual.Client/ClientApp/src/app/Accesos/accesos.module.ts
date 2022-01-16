@@ -8,6 +8,7 @@ import { AccesosComponent } from './accesos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CargandoComponent } from '../Compartidas/CargandoGeneral/cargando.component';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CargandoComponent } from '../Compartidas/CargandoGeneral/cargando.compo
     AccesosRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPermissionsModule
   ]
 })
 export class AccesosModule { }

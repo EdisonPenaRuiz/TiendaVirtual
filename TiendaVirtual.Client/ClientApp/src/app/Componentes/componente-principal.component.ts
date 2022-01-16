@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
   selector: 'app-componente-principal',
@@ -7,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComponentePrincipalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private permissionsService: NgxPermissionsService, private http: HttpClient) { }
   mostrarMenu: boolean = true;
 
   ngOnInit(): void {
+    
   }
 
   ExpandirExtraerMenu(mostrar: any) {

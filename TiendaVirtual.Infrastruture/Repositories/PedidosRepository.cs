@@ -42,7 +42,7 @@ namespace TiendaVirtual.Infrastruture.Repositories
                                 Precio = articulos.Precio,
                                 FormaPagoID = pedidos.FormaPagoId,
                                 UsuarioID = pedidos.UsuarioId
-                            }).Join(_context.FormaPagos, pedidos => pedidos.FormaPagoID,
+                            }).Join(_context.FormasPagosUsuarios, pedidos => pedidos.FormaPagoID,
                             formaPago => formaPago.FormaPagoId, (pedidos, formaPagos) => new
                             {
                                 PedidoID = pedidos.PedidoID,
@@ -117,15 +117,8 @@ namespace TiendaVirtual.Infrastruture.Repositories
                     //Comprobando existencia de pedidos
                     if (_context.Pedidos.Where(pedidos => pedidos.PedidoId == PedidoID).Count() > 0)
                     {
-
-                        
-                         _context.Entry(Pedido).State = EntityState.Modified;
-
-
                         _context.Add(Pedido);
                         await _context.SaveChangesAsync();
-
-
 
                         Respuesta = new RepuestasServidorGenericas<Pedido>(new Pedido(), new List<Pedido>() { }, true);
                     }
