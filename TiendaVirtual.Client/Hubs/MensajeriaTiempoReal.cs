@@ -11,7 +11,7 @@ namespace TiendaVirtual.Client.Hubs
 
         public Task MensajeGenerar(string mensaje)
         {
-            return Clients.Client("").SendAsync("MensajeriaGeneral", mensaje);
+            return Clients.All.SendAsync("MensajeriaGeneral", mensaje);
         }
     }
 }

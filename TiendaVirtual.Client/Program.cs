@@ -1,13 +1,16 @@
 using Microsoft.EntityFrameworkCore;
+using TiendaVirtual.Client.Hubs;
 using TiendaVirtual.Core.Interfaces;
 using TiendaVirtual.Infrastruture.Data;
 using TiendaVirtual.Infrastruture.Repositories;
+using Microsoft.AspNetCore.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddSignalR();
 
 //Interfaces
 builder.Services.AddTransient<ILoginRepository, LoginRepository>();
@@ -16,6 +19,9 @@ builder.Services.AddTransient<IPedidosRepository, PedidosRepository>();
 builder.Services.AddTransient<IArticulosRepository, ArticulosRepository>();
 builder.Services.AddTransient<IFormasPagosUsuarioRepository, FormasPagosUsuarios>();
 builder.Services.AddTransient<ICuentaRepository, CuentasRepository>();
+
+
+builder.Services.AddHealthChecks();
 
 
 //DBContext
@@ -35,15 +41,20 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<MensajeriaTiempoReal>("/Mensajeria");
+});
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
 
-app.MapFallbackToFile("index.html"); ;
+app.MapFallbackToFile("index.html"); 
+
 
 app.Run();
