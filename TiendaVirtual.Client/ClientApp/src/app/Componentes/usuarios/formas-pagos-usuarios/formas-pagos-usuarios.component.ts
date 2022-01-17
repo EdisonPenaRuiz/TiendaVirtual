@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { RetornoServidor } from '../../../Interfaces/RespuestaGenericasServidorInterface/RetornoServidor.Interface';
-import { FormasPagosUsuariosModel } from '../../../Models/FormasPagosModel/FormasPagosUsuarios.Model';
+import { FormasPagosUsuariosModel } from '../../../Modelos/FormasPagosModel/FormasPagosUsuarios.Model';
+
 import { ServicioFormasPagosUsuarios } from '../../../Servicios/servicio-formas-pagos-usuarios.service';
 import { ServicioLocalStorage } from '../../../Servicios/servicio-local-storage.service';
 

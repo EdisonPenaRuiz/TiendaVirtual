@@ -28,7 +28,6 @@ namespace TiendaVirtual.Api.Controllers
         public async Task<ActionResult<FormasPagosUsuario>> ObtenerFormasPagosPorUsuarioID(int Usuarioid)
         {
             var FormaPagosReturn = new Object();
-
             try
             {
                 FormaPagosReturn = await _formapagousuario.ObtenerFormasPagosPorUsuarioID(Usuarioid);

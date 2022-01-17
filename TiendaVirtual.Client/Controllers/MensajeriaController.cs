@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using TiendaVirtual.Client.Hubs;
 using TiendaVirtual.Core.Entities;
+using TiendaVirtual.Core.Interfaces;
 
 namespace TiendaVirtual.Client.Controllers
 {
@@ -18,13 +19,13 @@ namespace TiendaVirtual.Client.Controllers
         }
 
         [HttpPost]
-        public IActionResult EnviarMensaje([FromBody] Mensaje mensajesModel) 
+        public string ObtenerMensaje(string mensajes) 
         {
-            string mensaje = Newtonsoft.Json.JsonConvert.SerializeObject(mensajesModel);
+            string repuesta = string.Empty;
+            
+            _hubContext.Clients.All.SendAsync("mensajes",mensajes);
 
-            _hubContext.Clients.Client(mensajesModel.UsuarioIddestino.ToString()).SendAsync("enviarmensaje", mensajesModel.Mensaje1);
-
-            return Ok("Operacion realizada correctamente!");
+            return repuesta;
         }
 
         [HttpGet("{id}")]

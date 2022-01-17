@@ -5,13 +5,14 @@ import { Router } from '@angular/router';
 import { NgxPermissionsService } from 'ngx-permissions';
 import { NgxPermission } from 'ngx-permissions/lib/model/permission.model';
 import Swal from 'sweetalert2';
-import { permissionsFactory } from '../../Componentes/componente-principal.module';
 import { RetornoServidor } from '../../Interfaces/RespuestaGenericasServidorInterface/RetornoServidor.Interface';
-import { LoginModel } from '../../Models/LoginModel/Login.Model';
-import { UsuariosModel } from '../../Models/UsuarioModel/UsuarioModel';
+import { LoginModel } from '../../Modelos/LoginModel/Login.Model';
+import { UsuariosModel } from '../../Modelos/UsuarioModel/UsuarioModel';
 import { CargarPermisosService } from '../../Servicios/cargar-permisos.service';
 import { ServicioAutenticacion } from '../../Servicios/servicio-autenticacion.service';
 import { ServicioLocalStorage } from '../../Servicios/servicio-local-storage.service';
+import { ServicioMensajeria } from '../../Servicios/servicio-mensajeria.service';
+import 'animate.css';
 
 @Component({
   selector: 'app-login',
@@ -40,11 +41,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let usuarioRol = this.servicioLocalStorage.ObteniendoCredencialesLocalStorage();
-    this.http.get(this.baseUrl + `api/Permisos/${usuarioRol.rolId}`).subscribe((permissions: any) => {
-      this.ServicioPermissions.loadPermissions(permissions);
-    })
+    
   }
+
+  onKeypressEvent(keyevent: any) {
+    console.log(this.formulario);
+  }
+
 
   Login() {
     this.formularioEnviado = true;
@@ -57,22 +60,29 @@ export class LoginComponent implements OnInit {
       this.AutenticacionServicio.Login(Usuario).subscribe((resp: RetornoServidor<UsuariosModel>) => {
 
         if (resp.operacionExitosa == true && resp.error == null) {
-          this.AgregarPermisosUsuarios();
           this.servicioLocalStorage.GuardarCredencialesLocalStorage(resp.resultadoEspecifico);
+          this.AgregarPermisosUsuarios();
+          setTimeout(() => {
+            this.cargandoIngresando = false;
+            this.mostrarLoading = true;
             setTimeout(() => {
-              this.cargandoIngresando = false;
-              this.mostrarLoading = true;
-              setTimeout(() => {
-                this.mostrarLoading = false;
-                this.route.navigate(['Principal']);
-              }, 1500);
-            }, 2000);
+              this.mostrarLoading = false;
+              this.route.navigate(['Principal']);
+            }, 1500);
+          }, 2000);
 
         } else if (resp.operacionExitosa == true && resp.error != null) {
           this.credencialesIncorrectas = true;
           this.cargandoIngresando = false;
           this.mostrarLoading = false;
           this.mensajeDeError = resp.error;
+        } else if (resp.operacionExitosa == false && resp.error != null) {
+          this.cargandoIngresando = false;
+          Swal.fire({
+            icon: 'error',
+            title: 'Ha ocurrido un error',
+            text: resp.error
+          })
         }
       },
         (error: any) => {
@@ -87,20 +97,10 @@ export class LoginComponent implements OnInit {
   }
 
   AgregarPermisosUsuarios() {
-
-    this.ServicioCargarPermisosUsuario.loadPermisos().then((data) => {
-      var usuario = this.servicioLocalStorage.ObteniendoCredencialesLocalStorage();
-     
-      let permisos: string[] = [];
-      if (usuario.rolId == 1) {
-        permisos = ['Pedidos-Comprador', 'FormasPagos-Comprador', 'Cuentas-Comprador', 'Mensajes-Comprador']
-      } else if (usuario.rolId == 2) {
-        permisos = ['Articulo-Vendedor', 'Mensajes-Vendedor']
-      }
-      permisos.forEach(permiso => { this.ServicioPermissions.addPermission(permiso) });
+    let usuarioRol = this.servicioLocalStorage.ObteniendoCredencialesLocalStorage();
+    this.http.get(this.baseUrl + `api/Permisos/${usuarioRol.rolId}`).subscribe((permissions: any) => {
+      this.ServicioPermissions.loadPermissions(permissions);
     });
-  
-   
   }
 
 }

@@ -22,14 +22,17 @@ builder.Services.AddTransient<ICuentaRepository, CuentasRepository>();
 builder.Services.AddTransient<IMensajeriaRepository, MensajeriaRepository>();
 
 
-builder.Services.AddHealthChecks();
-
 
 //DBContext
 builder.Services.AddDbContext<TiendaVirtualContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
 
 //Coords
-builder.Services.AddCors(cords => cords.AddPolicy("WebAppiCors", cordsBuilds => cordsBuilds.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+builder.Services.AddCors(cords => cords.AddPolicy(name:"WebApiPolice",
+    cordsBuilds => cordsBuilds.AllowAnyOrigin().
+    AllowAnyHeader().
+    AllowAnyMethod().
+    SetIsOriginAllowed((Host) => true))) ;
+
 
 
 
@@ -41,14 +44,19 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+app.UseRouting();
+app.UseCors("WebApiPolice");
 
-
+app.UseAuthentication();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseRouting();
+
+
+//No funciona aun, problemas con cords
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapHub<MensajeriaTiempoReal>("/Mensajeria");
+    endpoints.MapControllers();
+    endpoints.MapHub<MensajeriaTiempoReal>("/MensajeriaTiempoReal");
 });
 
 app.MapControllerRoute(

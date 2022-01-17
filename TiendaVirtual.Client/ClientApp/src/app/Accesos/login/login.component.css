@@ -40,6 +40,7 @@ p {
   font-family: 'Times New Roman', Times, serif, cursive;
   font-weight: bold;
   font-size: 150%;
+  color: grey;
 }
 
 .cursoPointer{

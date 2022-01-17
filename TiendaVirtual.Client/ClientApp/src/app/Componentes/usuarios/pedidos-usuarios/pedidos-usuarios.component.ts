@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { RetornoServidor } from '../../../Interfaces/RespuestaGenericasServidorInterface/RetornoServidor.Interface';
-import { PedidosUsuarios } from '../../../Models/PedidosModel/PedidosModel';
+import { PedidosUsuarios } from '../../../Modelos/PedidosModel/PedidosModel';
 import { ServicioLocalStorage } from '../../../Servicios/servicio-local-storage.service';
 import { ServicioPedidos } from '../../../Servicios/servicio-pedidos.service';
 
@@ -26,16 +26,16 @@ export class PedidosUsuariosComponent implements OnInit {
     var usuario = this.servicioLocalStorage.ObteniendoCredencialesLocalStorage();
 
     //Datos comprador
-    this.NombreComprador = usuario['nombre'];
-    this.ApellidoComprador = usuario['apellido'];
+    this.NombreComprador = usuario.nombre;
+    this.ApellidoComprador = usuario.apellido;
 
     //Obteniendo pedidos de comprador
-    this.servicioPedidos.ObtenerPedidosPorUsuarioID(usuario['usuarioId']).subscribe((resp: RetornoServidor<PedidosUsuarios>) => {
-      console.log(resp);
+    this.servicioPedidos.ObtenerPedidosPorUsuarioID(usuario).subscribe((resp: RetornoServidor<PedidosUsuarios>) => {
+ 
       if (resp.operacionExitosa == true && resp.error == null) {
-        console.log(resp.listadoResultados)
         if (resp.listadoResultados.length > 0) {
           this.Pedidos = resp.listadoResultados;
+          
         }
       } else if (resp.operacionExitosa == true && resp.error != null) {
         this.Pedidos = [];

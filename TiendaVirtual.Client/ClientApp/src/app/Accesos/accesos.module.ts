@@ -7,8 +7,8 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import { AccesosComponent } from './accesos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CargandoComponent } from '../Compartidas/CargandoGeneral/cargando.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { CargandoComponent } from '../Componentes-Compartidos/CargandoGeneral/cargando.component';
 
 
 @NgModule({

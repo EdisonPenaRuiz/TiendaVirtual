@@ -12,6 +12,5 @@ namespace TiendaVirtual.Core.Entities
         public int PedidoId { get; set; }
         public bool EstadoMensaje { get; set; }
 
-        public virtual Pedido MensajeNavigation { get; set; } = null!;
     }
 }

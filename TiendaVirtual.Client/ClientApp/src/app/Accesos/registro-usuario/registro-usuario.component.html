@@ -1,7 +1,7 @@
-<div class="row d-flex align-items-center justify-content-center " style="z-index: 1;min-height:100vh;">
-  <div class="col-5">
-    <form [formGroup]="formulario" (ngSubmit)="Registrar()" class="shadow-sm p-1 row">
-      <div class="form-group col-12">
+<div class="row d-flex align-items-center justify-content-center animate__animated animate__fadeIn animate__delay-0.2s" style="z-index: 1;min-height:100vh;">
+  <div class="col-sm-12 col-10 col-md-8 col-lg-6 col-xl-5">
+    <form [formGroup]="formulario " (ngSubmit)="Registrar()" class="shadow-sm p-1 row">
+      <div class="form-group ">
         <div class="row">
           <div class="d-block text-center col-12 m-0 p-0 h-50">
             <img class="imagen" src="https://media.istockphoto.com/vectors/online-shopping-digital-store-concept-vector-id1256806812">
@@ -10,17 +10,20 @@
             <p>Registro De Usuario</p>
           </div>
           <!-----------------------------Nombre Usuario--------------------------------->
-          <div class="col-6 mt-3 mb-3 text-center">
+          <div class="col-sm-6 col-12 mt-3 mb-3 text-center">
             <label class="font-weight-bold">Nombre:</label>
             <div class="input-group-prepend">
               <div class="input-group-text  bg-white" [class.border-bottom-red]="this.formulario.get('nombre')?.invalid && this.formulario.get('nombre')?.touched" [class.border-bottom-green]="this.formulario.get('nombre')?.valid && this.formulario.get('nombre')?.touched">
                 <i class="fas fa-id-card"></i>
               </div>
-              <input type="text" name="nombre"  formControlName="nombre" autocomplete="off" class="form-control">
+              <input type="text" name="nombre" formControlName="nombre" autocomplete="off" class="form-control">
+            </div>
+            <div class="w-100 d-block text-center mt-0 mb-0 pt-0 pb-0" *ngIf="this.formulario.get('nombre')?.errors != null &&  this.formulario.get('nombre')?.touched">
+              <small class="text-danger m-0 font-weight-bold" *ngIf="this.formulario.get('nombre')?.errors?.required==true ">Campo Requerido</small>
             </div>
           </div>
           <!-----------------------------Apellido Usuario--------------------------------->
-          <div class=" col-6 mt-3 mb-3 text-center">
+          <div class="col-sm-6 col-12 mt-3 mb-3 text-center">
             <label class="font-weight-bold">Apellido:</label>
             <div class="input-group-prepend">
               <div class="input-group-text  bg-white" [class.border-bottom-red]="this.formulario.get('apellido')?.invalid && this.formulario.get('apellido')?.touched" [class.border-bottom-green]="this.formulario.get('apellido')?.valid && this.formulario.get('apellido')?.touched">
@@ -28,21 +31,27 @@
               </div>
               <input type="text" name="apellido" formControlName="apellido" autocomplete="off" class="form-control">
             </div>
+            <div class="w-100 d-block text-center mt-0 mb-0 pt-0 pb-0" *ngIf="this.formulario.get('apellido')?.errors != null &&  this.formulario.get('apellido')?.touched">
+              <small class="text-danger m-0 font-weight-bold" *ngIf="this.formulario.get('apellido')?.errors?.required==true ">Campo Requerido</small>
+            </div>
           </div>
           <!---------------------------- Usuario --------------------------------->
-          <div class="col-6  mt-3 mb-3 text-center">
+          <div class="col-sm-6 col-12  mt-3 mb-3 text-center">
             <label class="font-weight-bold">Usuario:</label>
             <div class="input-group-prepend">
               <div class="input-group-text  bg-white" [class.border-bottom-red]="this.formulario.get('usuario')?.invalid && this.formulario.get('usuario')?.touched" [class.border-bottom-green]="this.formulario.get('usuario')?.valid && this.formulario.get('usuario')?.touched">
                 <i class="fas fa-user-circle"></i>
               </div>
               <input type="text" name="usuario" formControlName="usuario" autocomplete="off" class="form-control">
-              
+
             </div>
             <small class="text-danger d-block">{{mensajeError}}</small>
+            <div class="w-100 d-block text-center mt-0 mb-0 pt-0 pb-0" *ngIf="this.formulario.get('usuario')?.errors != null &&  this.formulario.get('usuario')?.touched">
+              <small class="text-danger m-0 font-weight-bold" *ngIf="this.formulario.get('usuario')?.errors?.required==true ">Campo Requerido</small>
+            </div>
           </div>
           <!-----------------------------Contrasena--------------------------------->
-          <div class="col-6  mt-3 mb-3 text-center">
+          <div class="col-sm-6 col-12  mt-3 mb-3 text-center">
             <label class="font-weight-bold">Contraseña:</label>
             <div class="input-group-prepend ">
 
@@ -51,28 +60,35 @@
               </div>
               <input type="password" name="contrasena" formControlName="contrasena" autocomplete="off" class="form-control">
             </div>
+            <div class="w-100 d-block text-center mt-0 mb-0 pt-0 pb-0" *ngIf="this.formulario.get('contrasena')?.errors != null &&  this.formulario.get('contrasena')?.touched">
+              <small class="text-danger m-0 font-weight-bold" *ngIf="this.formulario.get('contrasena')?.errors?.required==true ">Campo Requerido</small>
+            </div>
           </div>
+          
           <!-----------------------------Roles Usuarios--------------------------------->
           <div class="bg-white col-12 text-center align-items-center font-weight-bold ">
             <hr class="m-0 p-0" />
             <label class="text-black">SELECCIONE SU PERFIL</label>
-            <hr class="m-0 p-0"/>
+            <hr class="m-0 p-0" />
           </div>
           <div class="col-6  mt-3 mb-3 justify-content-center d-flex" *ngFor="let rol of RolesUsuarios">
             <a class="p-2 text-white btn" [ngClass]="{'btn-primary':this.formulario.get('rol')?.value == rol.Codigo,'btn-secondary':this.formulario.get('rol')?.value != rol.Codigo}" (click)="this.formulario.controls['rol'].setValue(rol.Codigo)">
               <i class="fas" [ngClass]="{'fa-store': rol.Codigo == 2,'fa-shopping-cart':rol.Codigo == 1}"></i> {{rol.Nombre}}
             </a>
           </div>
-          <hr class="m-0 p-0"/>
+          <hr class="m-0 p-0" />
           <!------------------------------ Botones -------------------------------->
-         
+
           <div class="col-12  mt-2 justify-content-center d-flex text-center">
-            
+
             <button class="btn btn-danger m-2" [routerLink]="['../login']" type="submit">
               <i class="fas fa-arrow-left"></i> Regresar
             </button>
-            <button [disabled]="this.formulario.invalid" class="btn btn-success m-2" type="submit">
+            <button *ngIf="cargando==false" [disabled]="this.formulario.invalid" class="btn btn-success m-2" type="submit">
               <i class="fas fa-plus"></i> Agregar
+            </button>
+            <button *ngIf="cargando==true" disabled class="btn btn-success m-2" type="submit">
+               Agregando...
             </button>
 
           </div>

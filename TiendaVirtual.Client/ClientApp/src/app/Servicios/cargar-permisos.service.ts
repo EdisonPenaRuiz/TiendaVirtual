@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { getBaseUrl } from '../../main';
 import { ServicioLocalStorage } from './servicio-local-storage.service';
 
 @Injectable({
@@ -24,9 +22,9 @@ export class CargarPermisosService {
        
           var usuario = this.servicioLocalStorage.ObteniendoCredencialesLocalStorage();
           if (usuario.rolId == 1) {
-          permisos = ['Pedidos-Comprador', 'FormasPagos-Comprador', 'Cuentas-Comprador', 'Mensajes-Comprador']
+          permisos = ['Comprador']
           } else if (usuario.rolId == 2) {
-          permisos = ['Articulo-Vendedor', 'Mensajes-Vendedor']
+          permisos = ['Vendedor']
          };
 
       return permisos;

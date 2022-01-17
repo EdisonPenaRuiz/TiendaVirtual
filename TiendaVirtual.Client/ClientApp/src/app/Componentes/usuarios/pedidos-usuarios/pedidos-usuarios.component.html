@@ -1,16 +1,19 @@
-<div class="row">
+<div class="row animate__animated animate__fadeIn animate__delay-0.2s">
 
   <div class="col-12">
 
     <div class="card text-center mt-2">
       <div class="card-header text-left bg-white">
-        <h5 class="card-title"><i class="fas fa-shopping-cart"></i> Pedidos De {{NombreComprador}} {{ApellidoComprador}}</h5>
+        <div class="card-title">
+          <h5 *ngxPermissionsOnly="['Comprador']"><i class="fas fa-shopping-cart"></i> Pedidos De {{NombreComprador}} {{ApellidoComprador}}</h5>
+          <h5 *ngxPermissionsOnly="['Vendedor']"><i class="fas fa-store "></i> Ventas De {{NombreComprador}} {{ApellidoComprador}}</h5>
+        </div>
       </div>
       <div class="card-body">
         <div class="col-12" *ngIf="Pedidos.length > 0">
           <div class="row">
-            <div class="col-4" *ngFor="let pedido of Pedidos">
-              <app-card-pedidos-usuarios class="col-4"
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 " *ngFor="let pedido of Pedidos">
+              <tarjeta-pedidos-usuarios class="col-12"
                                           [PedidoId]="pedido.pedidoID"
                                           [PaisDestino]="pedido.paisDestino"
                                           [ProvinciaDestino]="pedido.provinciaDestino"
@@ -19,7 +22,7 @@
                                           [Precio]="pedido.precio"
                                           [Articulo]="pedido.nombre">
 
-              </app-card-pedidos-usuarios>
+              </tarjeta-pedidos-usuarios>
             </div>
           </div>
           

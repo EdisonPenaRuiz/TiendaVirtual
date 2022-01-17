@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { RetornoServidor } from '../../Interfaces/RespuestaGenericasServidorInterface/RetornoServidor.Interface';
-import { DiccionarioGenericoModel } from '../../Models/DiccionarioGenericoModel/DiccionarioGenericoModel';
-import { UsuariosModel } from '../../Models/UsuarioModel/UsuarioModel';
+import { DiccionarioGenericoModel } from '../../Modelos/DiccionarioGenericoModel/DiccionarioGenericoModel';
+import { UsuariosModel } from '../../Modelos/UsuarioModel/UsuarioModel';
 import { ServicioAutenticacion } from '../../Servicios/servicio-autenticacion.service';
 import { ServicioUsuarios } from '../../Servicios/servicio-usuarios.service';
 
@@ -18,6 +18,7 @@ export class RegistroUsuarioComponent implements OnInit {
   RolesUsuarios: DiccionarioGenericoModel[] = [];
   anno = new Date().getFullYear();
   mensajeError = "";
+  cargando: boolean = false;
 
   constructor(private UsuariosServicio: ServicioUsuarios, private route: Router, private formService: FormBuilder) {
     this.formulario = this.formService.group({
@@ -25,7 +26,8 @@ export class RegistroUsuarioComponent implements OnInit {
       apellido: ['', [Validators.required, Validators.minLength(1)]],
       usuario: ['', [Validators.required, Validators.minLength(1)]],
       contrasena: ['', [Validators.required, Validators.minLength(1)]],
-      rol: [1, [Validators.required, Validators.minLength(1), Validators.min(1), Validators.max(2)]]
+      rol: [1, [Validators.required, Validators.minLength(1), Validators.min(1), Validators.max(2)]],
+      usuarioId:[0]
     })
   }
 
@@ -37,17 +39,19 @@ export class RegistroUsuarioComponent implements OnInit {
 
   Registrar() {
     this.mensajeError = "";
-
+    this.cargando = true;
     //Creando un usuario a partil del formulario
     let usuarioEnviar = new UsuariosModel(
       this.formulario.controls['nombre'].value,
       this.formulario.controls['apellido'].value,
       this.formulario.controls['usuario'].value,
       this.formulario.controls['contrasena'].value,
-      this.formulario.controls['rol'].value
+      this.formulario.controls['rol'].value,
+      this.formulario.controls['usuarioId'].value
     );
     this.UsuariosServicio.AgregarUsuario(usuarioEnviar).subscribe((resp: RetornoServidor<UsuariosModel>) => {
       if (resp.operacionExitosa == true && resp.error == null) {
+        this.cargando = false;
         Swal.fire({
           icon: 'success',
           title: 'Operacion Realizada!',
@@ -55,9 +59,11 @@ export class RegistroUsuarioComponent implements OnInit {
         })
         this.route.navigate(['/Acceso/login']);
       } else if (resp.operacionExitosa == true && resp.error != null) {
+        this.cargando = false;
         this.mensajeError = resp.error
       }
     }, error => {
+      this.cargando = false;
       Swal.fire({
         icon: 'error',
         title: 'Ha ocurrido un error',

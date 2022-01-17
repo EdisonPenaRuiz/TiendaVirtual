@@ -11,7 +11,7 @@ namespace TiendaVirtual.Core.Interfaces
     public interface IPedidosRepository
     {
 
-        public Task<RepuestasServidorGenericas<ListadoPedido>> ObtenerPedidosPorUsuarioID(int UsuarioID);
+        public Task<RepuestasServidorGenericas<ListadoPedido>> ObtenerPedidosPorUsuarioID(Usuario Usuario);
 
         public Task<RepuestasServidorGenericas<Pedido>> AgregarPedido(Pedido Pedido);
 

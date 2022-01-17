@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FormasPagosUsuariosModel } from '../Models/FormasPagosModel/FormasPagosUsuarios.Model';
+import { FormasPagosUsuariosModel } from '../Modelos/FormasPagosModel/FormasPagosUsuarios.Model';
 
 @Injectable({
   providedIn: 'root'

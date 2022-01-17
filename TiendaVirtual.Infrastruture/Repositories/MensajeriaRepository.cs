@@ -39,7 +39,7 @@ namespace TiendaVirtual.Infrastruture.Repositories
             var Respuesta = new RepuestasServidorGenericas<Mensaje>(new Mensaje() { }, new List<Mensaje>() { }, false);
             try
             {
-                List<Mensaje> listadoMensaje = await _context.Mensajes.Where(mensaje => mensaje.UsuarioIddestino == usuariosMensajes.UsuarioIddestino || mensaje.UsuarioIdorigen == mensaje.UsuarioIddestino || mensaje.UsuarioIdorigen == usuariosMensajes.UsuarioIdorigen || mensaje.UsuarioIddestino == mensaje.UsuarioIdorigen).ToListAsync();
+                List<Mensaje> listadoMensaje = await _context.Mensajes.Where(mensaje => mensaje.UsuarioIddestino == usuariosMensajes.UsuarioIddestino || mensaje.UsuarioIdorigen == mensaje.UsuarioIddestino || mensaje.UsuarioIdorigen == usuariosMensajes.UsuarioIdorigen || mensaje.UsuarioIddestino == mensaje.UsuarioIddestino).ToListAsync();
                 Respuesta = new RepuestasServidorGenericas<Mensaje>(new Mensaje() { }, listadoMensaje, true);
             }
             catch (Exception e)

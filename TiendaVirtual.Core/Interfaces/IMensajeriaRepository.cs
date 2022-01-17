@@ -11,7 +11,6 @@ namespace TiendaVirtual.Core.Interfaces
     public interface IMensajeriaRepository
     {
         public Task<RepuestasServidorGenericas<Mensaje>> ObtenerTodosLosMensajesUsuario(int usuarioID);
-
         public Task<RepuestasServidorGenericas<Mensaje>> ObtenerTodosLosMensajesUsuariosEpecificos(Mensaje usuariosMensajes);
     }
 }

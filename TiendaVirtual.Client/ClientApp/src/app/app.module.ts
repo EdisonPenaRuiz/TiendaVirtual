@@ -5,11 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './Compartidas/nav-menu/nav-menu.component';
-import { CargandoComponent } from './Compartidas/CargandoGeneral/cargando.component';
-import { ProteccionRutaAutenticacionGuard } from './Guards/proteccion-ruta-autenticacion.guard';
 import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 import { CargarPermisosService } from './Servicios/cargar-permisos.service';
+import { ProteccionRutaAutenticacionGuard } from './Guardianes/proteccion-ruta-autenticacion.guard';
 
 export function permissionsFactory(ngxPermissionsService: NgxPermissionsService, loadCargaService: CargarPermisosService) {
   return () => {

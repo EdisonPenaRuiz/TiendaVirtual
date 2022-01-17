@@ -8,19 +8,19 @@ namespace TiendaVirtual.Client.Controllers
     public class PermisosController : ControllerBase
     {
 
-        [HttpGet("{id}")]
+        [HttpGet("{rolId}")]
         public ActionResult ObtenerPermisos(int rolId)
         {
             if (rolId==1) { 
-             string[] PermisoComprador = { "Pedidos-Comprador", "FormasPagos-Comprador", "Cuentas-Comprador", "Mensajes-Comprador" };
+             string[] PermisoComprador = { "Comprador" };
                 return Ok(PermisoComprador);
             }
-            else
+            else if (rolId == 2)
             {
-                string[] PermisoVendedor = { "Permisos-Vendedor", "Mensajes-Vendedor" };
+                string[] PermisoVendedor = { "Vendedor" };
                 return Ok(PermisoVendedor);
             }
-            
+            return Ok();
         }
     }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { RetornoServidor } from '../../../Interfaces/RespuestaGenericasServidorInterface/RetornoServidor.Interface';
-import { CuentasModel } from '../../../Models/CuentasModel/Cuentas.Model';
+import { CuentasModel } from '../../../Modelos/CuentasModel/Cuentas.Model';
+import { UsuariosModel } from '../../../Modelos/UsuarioModel/UsuarioModel';
+
 import { ServicioCuentas} from '../../../Servicios/servicio-cuentas.service';
 import { ServicioLocalStorage } from '../../../Servicios/servicio-local-storage.service';
 
@@ -23,14 +25,15 @@ export class CuentasUsuariosComponent implements OnInit {
   }
 
   ObtenerCuentasUsuarioLogueado() {
-    var usuario = this.servicioLocalStorage.ObteniendoCredencialesLocalStorage();
+    let usuario: UsuariosModel = this.servicioLocalStorage.ObteniendoCredencialesLocalStorage();
+   
 
     //Datos comprador
-    this.NombreComprador = usuario['nombre'];
-    this.ApellidoComprador = usuario['apellido'];
+    this.NombreComprador = usuario.nombre;
+    this.ApellidoComprador = usuario.apellido;
 
     //Obteniendo pedidos de comprador
-    this.ServicioCuentas.ObtenerCuentaPorUsuarioID(usuario['usuarioId']).subscribe((resp: RetornoServidor<CuentasModel>) => {
+    this.ServicioCuentas.ObtenerCuentaPorUsuarioID(usuario.usuarioId).subscribe((resp: RetornoServidor<CuentasModel>) => {
       console.log(resp);
       if (resp.operacionExitosa == true && resp.error == null) {
         if (resp.listadoResultados.length > 0) {

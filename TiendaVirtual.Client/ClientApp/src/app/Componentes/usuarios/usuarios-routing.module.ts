@@ -5,7 +5,7 @@ import { PedidosUsuariosComponent } from './pedidos-usuarios/pedidos-usuarios.co
 import { CuentasUsuariosComponent } from './cuentas-usuarios/cuentas-usuarios.component';
 import { FormasPagosUsuariosComponent } from './formas-pagos-usuarios/formas-pagos-usuarios.component';
 import { MensajesUsuariosComponent } from './mensajes-usuarios/mensajes-usuarios.component';
-import { ProteccionRutaPorRolesGuard } from '../../Guards/proteccion-ruta-por-role.guard';
+import { ProteccionRutaPorRolesGuard } from '../../Guardianes/proteccion-ruta-por-role.guard';
 
 const routes: Routes = [
   {

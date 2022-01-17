@@ -20,15 +20,15 @@ namespace TiendaVirtual.Infrastruture.Repositories
         }
 
 
-        public async Task<RepuestasServidorGenericas<ListadoPedido>> ObtenerPedidosPorUsuarioID(int UsuarioID)
+        public async Task<RepuestasServidorGenericas<ListadoPedido>> ObtenerPedidosPorUsuarioID(Usuario usuario)
         {
             var Respuesta = new RepuestasServidorGenericas<ListadoPedido>(new ListadoPedido() { },new List<ListadoPedido>() { }, true, null);
 
             try
             {
-                if (UsuarioID != null)
+                if (usuario.UsuarioId != null)
                 {
-                    if (_context.Usuarios.Where(usuario => usuario.UsuarioId == UsuarioID).Count() > 0)
+                    if (_context.Usuarios.Where(usuario => usuario.UsuarioId == usuario.UsuarioId).Count() > 0)
                     {
                         var PedidosUsuario = await _context.Pedidos
                             .Join(_context.Articulos, pedido => pedido.ArticuloId,
@@ -41,7 +41,7 @@ namespace TiendaVirtual.Infrastruture.Repositories
                                 SectorDestino = pedidos.SectorDestino,
                                 Precio = articulos.Precio,
                                 FormaPagoID = pedidos.FormaPagoId,
-                                UsuarioID = pedidos.UsuarioId
+                                UsuarioID = usuario.RolId == 1 ? pedidos.CompradorID:pedidos.VendedorID
                             }).Join(_context.FormasPagosUsuarios, pedidos => pedidos.FormaPagoID,
                             formaPago => formaPago.FormaPagoId, (pedidos, formaPagos) => new
                             {
@@ -54,7 +54,7 @@ namespace TiendaVirtual.Infrastruture.Repositories
                                 FormaDePago = formaPagos.Nombre,
                                 UsuarioID = pedidos.UsuarioID
                             })
-                            .Where(pedido => pedido.UsuarioID == UsuarioID)
+                            .Where(pedido => pedido.UsuarioID == usuario.UsuarioId)
                             .Select(pedido => new ListadoPedido { PedidoID = pedido.PedidoID, Nombre = pedido.Nombre, PaisDestino = pedido.PaisDestino, ProvinciaDestino = pedido.ProvinciaDestino, SectorDestino = pedido.SectorDestino, Precio = pedido.Precio, FormaDePago = pedido.FormaDePago })
                             .ToListAsync();
 
