@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { UsuariosModel } from '../Modelos/UsuarioModel/UsuarioModel';
 
-import { UsuariosModel } from '../Models/UsuarioModel/UsuarioModel';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class ServicioLocalStorage {
     localStorage.setItem('credenciales-usuario', JSON.stringify(usuario));
   }
 
-  ObteniendoCredencialesLocalStorage() {
+  ObteniendoCredencialesLocalStorage(): UsuariosModel{
     return JSON.parse(localStorage.getItem('credenciales-usuario') || '{}');
   }
 

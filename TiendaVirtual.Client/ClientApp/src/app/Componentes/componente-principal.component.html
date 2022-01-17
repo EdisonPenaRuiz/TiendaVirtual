@@ -1,7 +1,7 @@
 
   <div class="row" >
     <div [ngClass]="{'col-1':mostrarMenu == false,'col-2':mostrarMenu==true}" >
-      <app-nav-menu style="transition-delay:2s" class="bg-white" (ocultarMenu)="ExpandirExtraerMenu($event)" [ocultarTexto]="!mostrarMenu"></app-nav-menu>
+      <app-nav-menu style="transition:all 2s ease" class="bg-white  " (ocultarMenu)="ExpandirExtraerMenu($event)" [ocultarTexto]="!mostrarMenu"></app-nav-menu>
       
     </div>
     <div [ngClass]="{'col-11':mostrarMenu == false,'col-10':mostrarMenu==true}">

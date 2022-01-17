@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
       <PrivateAssets>all</PrivateAssets>
@@ -26,13 +27,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\app\Models\CuentasModel\Cuentas.Model.ts" />
-    <None Remove="ClientApp\src\app\Models\DiccionarioGenericoModel.ts" />
-    <None Remove="ClientApp\src\app\Models\FormasPagosModel\FormasPagosUsuarios.Model.ts" />
-    <None Remove="ClientApp\src\app\Models\Login.Model.ts" />
-    <None Remove="ClientApp\src\app\Models\PedidosModel.ts" />
-    <None Remove="ClientApp\src\app\Models\RetornoServidor.Model.ts" />
-    <None Remove="ClientApp\src\app\Models\UsuarioModel.ts" />
+    <None Remove="ClientApp\src\app\Modelos\CuentasModel\Cuentas.Model.ts" />
+    <None Remove="ClientApp\src\app\Modelos\DiccionarioGenericoModel.ts" />
+    <None Remove="ClientApp\src\app\Modelos\FormasPagosModel\FormasPagosUsuarios.Model.ts" />
+    <None Remove="ClientApp\src\app\Modelos\Login.Model.ts" />
+    <None Remove="ClientApp\src\app\Modelos\MensajesModel\MensajesModel.ts" />
+    <None Remove="ClientApp\src\app\Modelos\PedidosModel.ts" />
+    <None Remove="ClientApp\src\app\Modelos\RetornoServidor.Model.ts" />
+    <None Remove="ClientApp\src\app\Modelos\UsuarioModel.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,13 +43,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\Models\CuentasModel\Cuentas.Model.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\Models\DiccionarioGenericoModel\DiccionarioGenericoModel.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\Models\FormasPagosModel\FormasPagosUsuarios.Model.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\Models\LoginModel\Login.Model.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\Models\PedidosModel\PedidosModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Modelos\CuentasModel\Cuentas.Model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Modelos\DiccionarioGenericoModel\DiccionarioGenericoModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Modelos\FormasPagosModel\FormasPagosUsuarios.Model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Modelos\LoginModel\Login.Model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Modelos\MensajesModel\MensajesModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Modelos\PedidosModel\PedidosModel.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Interfaces\RespuestaGenericasServidorInterface\RetornoServidor.Interface.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\Models\UsuarioModel\UsuarioModel.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Modelos\UsuarioModel\UsuarioModel.ts" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

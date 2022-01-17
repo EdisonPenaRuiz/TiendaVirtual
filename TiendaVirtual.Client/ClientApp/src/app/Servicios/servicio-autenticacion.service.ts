@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { LoginModel } from '../Models/LoginModel/Login.Model';
+import { LoginModel } from '../Modelos/LoginModel/Login.Model';
 
 
 @Injectable({

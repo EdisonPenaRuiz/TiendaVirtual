@@ -1,0 +1,17 @@
+<div class="row animate__animated animate__fadeIn animate__delay-0.2s">
+  <div class="col-12">
+    <div class="card text-center mt-2">
+      <div class="card-header text-left bg-success text-white">
+        <h5 class="card-title"><i class="fab fa-whatsapp"></i> Mensajes De {{NombreComprador}} {{ApellidoComprador}}</h5>
+      </div>
+      <div class="card-body">
+        
+        <div class="col-12" *ngIf="Mensajes.length == 0">
+          <div class="alert alert-primary">
+            <h5 class="text-primary"><i class="fas fa-exclamation-circle fa-1x"></i> Este usuario no tiene historicos de mensajes </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

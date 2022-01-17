@@ -25,13 +25,14 @@ namespace TiendaVirtual.Api.Controllers
 
        
         // GET: api/Pedidos/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Pedido>> ObtenerPedidosPorUsuario(int id)
+        [HttpPost]
+        [Route("ObtenerPedidosPorUsuario")]
+        public async Task<ActionResult<Pedido>> ObtenerPedidosPorUsuario(Usuario usuario)
         {
             var PedidosReturn = new Object();
             try
             {
-                PedidosReturn = await _IpedidosRepository.ObtenerPedidosPorUsuarioID(id);
+                PedidosReturn = await _IpedidosRepository.ObtenerPedidosPorUsuarioID(usuario);
             }
             catch (Exception e)
             {

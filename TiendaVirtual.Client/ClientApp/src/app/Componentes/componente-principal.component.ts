@@ -7,7 +7,7 @@ import { NgxPermissionsService } from 'ngx-permissions';
   templateUrl: './componente-principal.component.html',
   styleUrls: ['./componente-principal.component.css']
 })
-export class ComponentePrincipalComponent implements OnInit {
+export class ComponentePrincipal implements OnInit {
 
   constructor(private permissionsService: NgxPermissionsService, private http: HttpClient) { }
   mostrarMenu: boolean = true;

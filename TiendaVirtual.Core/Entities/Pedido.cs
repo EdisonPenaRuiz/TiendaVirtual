@@ -11,7 +11,8 @@ namespace TiendaVirtual.Core.Entities
         public string SectorDestino { get; set; } = null!;
         public int ArticuloId { get; set; }
         public int FormaPagoId { get; set; }
-        public int UsuarioId { get; set; }
+        public int VendedorID { get; set; }
+        public int CompradorID { get; set; }
     }
 
     public partial class ListadoPedido
