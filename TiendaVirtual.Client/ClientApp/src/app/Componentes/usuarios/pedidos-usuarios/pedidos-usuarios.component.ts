@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { RetornoServidor } from '../../../Interfaces/RespuestaGenericasServidorInterface/RetornoServidor.Interface';
-import { CuentasModel } from '../../../Models/CuentasModel/Cuentas.Model';
-import { ServicioCuentas} from '../../../Servicios/servicio-cuentas.service';
+import { PedidosUsuarios } from '../../../Models/PedidosModel/PedidosModel';
 import { ServicioLocalStorage } from '../../../Servicios/servicio-local-storage.service';
+import { ServicioPedidos } from '../../../Servicios/servicio-pedidos.service';
 
 @Component({
-  selector: 'app-cuentas-comprador',
-  templateUrl: './cuentas-comprador.component.html',
-  styleUrls: ['./cuentas-comprador.component.css']
+  selector: 'app-pedidos-usuarios',
+  templateUrl: './pedidos-usuarios.component.html',
+  styleUrls: ['./pedidos-usuarios.component.css']
 })
-export class CuentasCompradorComponent implements OnInit {
+export class PedidosUsuariosComponent implements OnInit {
 
-  Cuentas: CuentasModel[] = [];
+  constructor(private servicioPedidos: ServicioPedidos, private servicioLocalStorage: ServicioLocalStorage) { }
+
+  Pedidos: PedidosUsuarios[] = [];
   NombreComprador: string = "";
   ApellidoComprador: string = "";
 
-  constructor(private ServicioCuentas: ServicioCuentas, private servicioLocalStorage: ServicioLocalStorage) { }
-
   ngOnInit(): void {
-    this.ObtenerCuentasUsuarioLogueado();
+    this.ObtenerPedidosUsuarioLogueado();
   }
 
-  ObtenerCuentasUsuarioLogueado() {
+  ObtenerPedidosUsuarioLogueado() {
     var usuario = this.servicioLocalStorage.ObteniendoCredencialesLocalStorage();
 
     //Datos comprador
@@ -30,15 +30,15 @@ export class CuentasCompradorComponent implements OnInit {
     this.ApellidoComprador = usuario['apellido'];
 
     //Obteniendo pedidos de comprador
-    this.ServicioCuentas.ObtenerCuentaPorUsuarioID(usuario['usuarioId']).subscribe((resp: RetornoServidor<CuentasModel>) => {
+    this.servicioPedidos.ObtenerPedidosPorUsuarioID(usuario['usuarioId']).subscribe((resp: RetornoServidor<PedidosUsuarios>) => {
       console.log(resp);
       if (resp.operacionExitosa == true && resp.error == null) {
+        console.log(resp.listadoResultados)
         if (resp.listadoResultados.length > 0) {
-          this.Cuentas = resp.listadoResultados;
-          console.log(this.Cuentas);
+          this.Pedidos = resp.listadoResultados;
         }
       } else if (resp.operacionExitosa == true && resp.error != null) {
-        this.Cuentas = [];
+        this.Pedidos = [];
       }
     },
       (error: any) => {

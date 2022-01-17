@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompradorComponent } from './comprador.component';
+import { MensajesCompradorComponent } from './mensajes-usuarios.component';
 
-describe('CompradorComponent', () => {
-  let component: CompradorComponent;
-  let fixture: ComponentFixture<CompradorComponent>;
+describe('MensajesCompradorComponent', () => {
+  let component: MensajesCompradorComponent;
+  let fixture: ComponentFixture<MensajesCompradorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CompradorComponent ]
+      declarations: [ MensajesCompradorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CompradorComponent);
+    fixture = TestBed.createComponent(MensajesCompradorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

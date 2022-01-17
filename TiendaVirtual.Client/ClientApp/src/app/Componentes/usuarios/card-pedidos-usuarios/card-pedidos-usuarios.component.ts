@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-card-pedidos-comprador',
-  templateUrl: './card-pedidos-comprador.component.html',
-  styleUrls: ['./card-pedidos-comprador.component.css']
+  selector: 'app-card-pedidos-usuarios',
+  templateUrl: './card-pedidos-usuarios.component.html',
+  styleUrls: ['./card-pedidos-usuarios.component.css']
 })
 export class CardPedidosCompradorComponent implements OnInit {
 

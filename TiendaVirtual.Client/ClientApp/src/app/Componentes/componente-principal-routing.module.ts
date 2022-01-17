@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProteccionRutaPorRolesGuard } from '../Guards/proteccion-ruta-por-role.guard';
-import { ComponentePrincipalComponent } from './componente-principal.component';
-import { CompradorComponent } from './comprador/comprador.component';
+import { ComponentePrincipal } from './componente-principal.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ComponentePrincipalComponent,
+    component: ComponentePrincipal,
     children: [
-      //Roles 1:Comprador 2:Vendedor
-      { path: 'Comprador', component: CompradorComponent, canActivate: [ProteccionRutaPorRolesGuard], data: { rol: 1,redirecTo:'Principal' }, loadChildren: () => import('./comprador/comprador.module').then(m => m.CompradorModule) },
+      { path: '', component: UsuariosComponent, loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule) },
       
     ]
     

@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { RetornoServidor } from '../../../Interfaces/RespuestaGenericasServidorInterface/RetornoServidor.Interface';
-import { PedidosUsuarios } from '../../../Models/PedidosModel/PedidosModel';
+import { CuentasModel } from '../../../Models/CuentasModel/Cuentas.Model';
+import { ServicioCuentas} from '../../../Servicios/servicio-cuentas.service';
 import { ServicioLocalStorage } from '../../../Servicios/servicio-local-storage.service';
-import { ServicioPedidos } from '../../../Servicios/servicio-pedidos.service';
 
 @Component({
-  selector: 'app-pedidos-comprador',
-  templateUrl: './pedidos-comprador.component.html',
-  styleUrls: ['./pedidos-comprador.component.css']
+  selector: 'app-cuentas-usuarios',
+  templateUrl: './cuentas-usuarios.component.html',
+  styleUrls: ['./cuentas-usuarios.component.css']
 })
-export class PedidosCompradorComponent implements OnInit {
+export class CuentasUsuariosComponent implements OnInit {
 
-  constructor(private servicioPedidos: ServicioPedidos, private servicioLocalStorage: ServicioLocalStorage) { }
-
-  Pedidos: PedidosUsuarios[] = [];
+  Cuentas: CuentasModel[] = [];
   NombreComprador: string = "";
   ApellidoComprador: string = "";
 
+  constructor(private ServicioCuentas: ServicioCuentas, private servicioLocalStorage: ServicioLocalStorage) { }
+
   ngOnInit(): void {
-    this.ObtenerPedidosUsuarioLogueado();
+    this.ObtenerCuentasUsuarioLogueado();
   }
 
-  ObtenerPedidosUsuarioLogueado() {
+  ObtenerCuentasUsuarioLogueado() {
     var usuario = this.servicioLocalStorage.ObteniendoCredencialesLocalStorage();
 
     //Datos comprador
@@ -30,15 +30,15 @@ export class PedidosCompradorComponent implements OnInit {
     this.ApellidoComprador = usuario['apellido'];
 
     //Obteniendo pedidos de comprador
-    this.servicioPedidos.ObtenerPedidosPorUsuarioID(usuario['usuarioId']).subscribe((resp: RetornoServidor<PedidosUsuarios>) => {
+    this.ServicioCuentas.ObtenerCuentaPorUsuarioID(usuario['usuarioId']).subscribe((resp: RetornoServidor<CuentasModel>) => {
       console.log(resp);
       if (resp.operacionExitosa == true && resp.error == null) {
-        console.log(resp.listadoResultados)
         if (resp.listadoResultados.length > 0) {
-          this.Pedidos = resp.listadoResultados;
+          this.Cuentas = resp.listadoResultados;
+          console.log(this.Cuentas);
         }
       } else if (resp.operacionExitosa == true && resp.error != null) {
-        this.Pedidos = [];
+        this.Cuentas = [];
       }
     },
       (error: any) => {

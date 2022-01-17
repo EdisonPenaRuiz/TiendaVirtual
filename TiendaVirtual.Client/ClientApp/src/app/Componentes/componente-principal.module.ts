@@ -2,11 +2,12 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ComponentePrincipalRoutingModule } from './componente-principal-routing.module';
-import { ComponentePrincipalComponent } from './componente-principal.component';
+import { ComponentePrincipal } from './componente-principal.component';
 import { NavMenuComponent } from '../Compartidas/nav-menu/nav-menu.component';
 import { HeadComponent } from '../Compartidas/head/head.component';
 import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions'
 import { CargarPermisosService } from '../Servicios/cargar-permisos.service';
+import { UsuariosModule } from './usuarios/usuarios.module';
 
 export function permissionsFactory(ngxPermissionsService: NgxPermissionsService, loadCargaService: CargarPermisosService) {
   return () => {
@@ -18,14 +19,15 @@ export function permissionsFactory(ngxPermissionsService: NgxPermissionsService,
 }
 @NgModule({
   declarations: [
-    ComponentePrincipalComponent,
+    ComponentePrincipal,
     NavMenuComponent,
     HeadComponent
   ],
   imports: [
     CommonModule,
     ComponentePrincipalRoutingModule,
-    NgxPermissionsModule.forChild()
+    NgxPermissionsModule.forChild(),
+    UsuariosModule
    
     
   ]

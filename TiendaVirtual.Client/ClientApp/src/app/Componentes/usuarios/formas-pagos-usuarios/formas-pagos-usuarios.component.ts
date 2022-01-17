@@ -6,11 +6,11 @@ import { ServicioFormasPagosUsuarios } from '../../../Servicios/servicio-formas-
 import { ServicioLocalStorage } from '../../../Servicios/servicio-local-storage.service';
 
 @Component({
-  selector: 'app-formas-pagos-comprador',
-  templateUrl: './formas-pagos-comprador.component.html',
-  styleUrls: ['./formas-pagos-comprador.component.css']
+  selector: 'app-formas-pagos-usuarios',
+  templateUrl: './formas-pagos-usuarios.component.html',
+  styleUrls: ['./formas-pagos-usuarios.component.css']
 })
-export class FormasPagosCompradorComponent implements OnInit {
+export class FormasPagosUsuariosComponent implements OnInit {
 
   FormasDePagos: FormasPagosUsuariosModel[] = [];
   NombreComprador: string = "";
