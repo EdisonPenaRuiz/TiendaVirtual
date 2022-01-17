@@ -19,6 +19,7 @@ builder.Services.AddTransient<IPedidosRepository, PedidosRepository>();
 builder.Services.AddTransient<IArticulosRepository, ArticulosRepository>();
 builder.Services.AddTransient<IFormasPagosUsuarioRepository, FormasPagosUsuarios>();
 builder.Services.AddTransient<ICuentaRepository, CuentasRepository>();
+builder.Services.AddTransient<IMensajeriaRepository, MensajeriaRepository>();
 
 
 builder.Services.AddHealthChecks();

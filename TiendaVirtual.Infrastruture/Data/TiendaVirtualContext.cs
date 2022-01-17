@@ -20,6 +20,7 @@ namespace TiendaVirtual.Infrastruture.Data
         public virtual DbSet<Articulo> Articulos { get; set; } = null!;
         public virtual DbSet<Cuenta> Cuentas { get; set; } = null!;
         public virtual DbSet<FormasPagosUsuario> FormasPagosUsuarios { get; set; } = null!;
+        public virtual DbSet<Mensaje> Mensajes { get; set; } = null!;
         public virtual DbSet<Pedido> Pedidos { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
@@ -92,6 +93,25 @@ namespace TiendaVirtual.Infrastruture.Data
                 entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
             });
 
+            modelBuilder.Entity<Mensaje>(entity =>
+            {
+                entity.Property(e => e.MensajeId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("MensajeID");
+
+                entity.Property(e => e.Mensaje1)
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnName("Mensaje");
+
+                entity.Property(e => e.PedidoId).HasColumnName("PedidoID");
+
+                entity.Property(e => e.UsuarioIddestino).HasColumnName("UsuarioIDDestino");
+
+                entity.Property(e => e.UsuarioIdorigen).HasColumnName("UsuarioIDOrigen");
+
+            });
+
             modelBuilder.Entity<Pedido>(entity =>
             {
                 entity.Property(e => e.PedidoId)
@@ -116,7 +136,7 @@ namespace TiendaVirtual.Infrastruture.Data
 
                 entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
 
-               
+                
             });
 
             modelBuilder.Entity<Role>(entity =>
